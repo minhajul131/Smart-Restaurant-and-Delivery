@@ -59,17 +59,26 @@
     <section class = "category">
         <div class = "container">
             <h2 class = "text-center">Categories</h2>
-
+            <a href="#">
             <div class = "box-3 float-container" >
-                <img src="images/Pizza.jpg" alt="pizza" class = "img-responsive">
-                <h3 class = "float-text">Title</h3>
+                <img src="images/Pizza.jpg" alt="pizza" class = "img-responsive img-curve">
+                <h3 class = "float-text text-white">Pizza</h3>
             </div>
-            <div class = "box-3">
-                Box 2
+            </a>
+
+            <a href="#">
+            <div class = "box-3 float-container">
+                <img src="images/burger.jpg" alt="burger" class = "img-responsive img-curve">
+                <h3 class = "float-text text-white">Burger</h3>
             </div>
-            <div class = "box-3">
-                Box 3
+            </a>
+
+            <a href="#">
+            <div class = "box-3 float-container">
+                <img src="images/nicholas.jpg" alt="nicholas" class = "img-responsive img-curve">
+                <h3 class = "float-text text-white">Nicholas</h3>
             </div>
+            </a>
 
             <div class = "clearfix"></div>
 
@@ -79,32 +88,87 @@
     <!-- category ends-->
 
     <!-- offer start-->
-    <!--<section class = "offer">
+    <section class = "food-menu">
         <div class = "container">
-            <h2 class = "text-center">Offers</h2>
-            <div class = "offer-box">
-                offer 1
+            <h2 class = "text-center">Explore Foods</h2>
+            <div class = "food-menu-box">
+                <div class = "food-menu-img">
+                    <img src="images/pizza-with-tomato-basil.jpg" alt="Pizza With Tomato Basil" class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4>food title</h4>
+                    <p class="food-prize">$2.9</p>
+                    <p class="food-detail">pizza with tomato and basil</p>
+                    <br>
+                    <a href="#" class="btn btn-primary">Order now</a>
+                </div>
+                <div class = "clearfix"></div>
             </div>
-            <div class = "offer-box">
-                offer 2
+            <div class = "food-menu-box">
+                <div class = "food-menu-img">
+                    <img src="images/Jimmy-Willy-Pizza.jpg" alt="Jimmy Willy Pizza" class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4>food title</h4>
+                    <p class="food-prize">$2.9</p>
+                    <p class="food-detail">Jimmy Willy Pizza</p>
+                    <br>
+                    <a href="#" class="btn btn-primary">Order now</a>
+                </div>
+                <div class = "clearfix"></div>
             </div>
-            <div class = "offer-box">
-                offer 3
+            <div class = "food-menu-box">
+                <div class = "food-menu-img">
+                    <img src="images/Edible-Chocolate-Bowls.jpg" alt="Edible Chocolate Bowls" class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4>food title</h4>
+                    <p class="food-prize">$2.9</p>
+                    <p class="food-detail">Edible Chocolate Bowls</p>
+                    <br>
+                    <a href="#" class="btn btn-primary">Order now</a>
+                </div>
+                <div class = "clearfix"></div>
             </div>
-            <div class = "offer-box">
-                offer 4
+            <div class = "food-menu-box">
+                <div class = "food-menu-img">
+                    <img src="images/coffee.jpg" alt="coffee" class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4>food title</h4>
+                    <p class="food-prize">$1</p>
+                    <p class="food-detail">coffee</p>
+                    <br>
+                    <a href="#" class="btn btn-primary">Order now</a>
+                </div>
+                <div class = "clearfix"></div>
             </div>
-            <div class = "offer-box">
-                offer 5
+            <div class = "food-menu-box">
+                <div class = "food-menu-img">
+                    <img src="images/burger-off.jpg" alt="burger-off" class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4>food title</h4>
+                    <p class="food-prize">$1.7</p>
+                    <p class="food-detail">burger</p>
+                    <br>
+                    <a href="#" class="btn btn-primary">Order now</a>
+                </div>
+                <div class = "clearfix"></div>
             </div>
             <div class = "clearfix"></div>
         </div>
-    </section>-->
+    </section>
     <!-- offer ends-->
 
     <!-- footer start-->
     <section class = "footer">
-        <div class = "container">
+        <div class = "container text-center">
             <p>Developed by <a href="#">Minhajul Islam</a>. All rights reserved.</p>
         </div>
     </section>

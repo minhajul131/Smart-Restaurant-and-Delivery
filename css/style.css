@@ -5,7 +5,6 @@
 }
 
 .container{
-    border: 1px solid red;
     width: 80%;
     margin: 0 auto;
     padding: 1%;
@@ -15,12 +14,19 @@
     width: 100%;
 }
 
+.img-curve{
+    border-radius: 15px;
+}
+
 .text-right{
     text-align: right;
 }
 
 .text-center{
     text-align: center;
+}
+.text-white{
+    color: white;
 }
 .clearfix{
     clear: both;
@@ -44,12 +50,18 @@ a:hover{
     cursor: pointer;
 }
 .btn-primary:hover{
+    color: white;
     background-color: #B53471;
 }
 
 h2{
     color: #EA2027;
     font-size: 2rem;
+    margin-bottom: 2%;
+}
+
+h3{
+    font-size: 1.5rem;
 }
 
 .float-container{
@@ -57,12 +69,13 @@ h2{
 }
 .float-text{
     position: absolute;
+    bottom: 50px;
+    
 }
 
 /*navber*/
 .logo{
-    border: 1px solid black;
-    width: 10%;
+    width: 5%;
     float: left;
 }
 
@@ -96,20 +109,6 @@ h2{
     border: none;
 }
 
-/* offer box
-.offer{
-    background-color: #ececec;
-    padding: 4% 0;
-}
-.offer-box{
-    border: 1px solid black;
-    width: 40%;
-    margin: 1%;
-    padding: 3%;
-    float: left;
-    background-color: white;
-}
-*/
 /* catagories*/
 
 .category{
@@ -117,8 +116,79 @@ h2{
 }
 
 .box-3{
-    border: 1px solid black;
     margin: 2%;
     float: left;
     width: 28%;
+}
+/* offer box*/
+.food-menu{
+    background-color: #ececec;
+    padding: 4% 0;
+}
+.food-menu-box{
+    width: 40%;
+    margin: 1%;
+    padding: 3%;
+    float: left;
+    background-color: white;
+    border-radius: 15px;
+}
+.food-menu-img{
+    width: 20%;
+    float: left;
+}
+.food-menu-desc{
+    width: 70%;
+    float: left;
+    margin-left: 8%;
+}
+
+.food-prize{
+    font-size: 1.2rem;
+    margin: 2% 0;
+}
+.food-detail{
+    font-size: 0.9rem;
+    color: #636e72;
+}
+
+
+/* mobile size*/
+@media only screen and (max-width:768px){
+    .logo{
+        width: 30%;
+        float: none;
+        margin: 1% auto;
+    }
+    .menu ul{
+        text-align: center;
+    }
+    .food-search input{
+        width: 90%;
+        padding: 2%;
+        margin-bottom: 5%;
+    }
+    .btn{
+        width: 90%;
+        padding: 2%;
+    }
+    .category{
+        padding: 20% 0;
+    }
+    h2{
+        margin-bottom: 10%;
+    }
+    .box-3{
+        width: 90%;
+        margin: 2% auto;
+    }
+    .food-menu{
+        padding: 20% 0;
+    }
+    .food-menu-box{
+        width: 90%;
+        padding: 5%;
+        margin-bottom: 5%;
+    }
+
 }
