@@ -79,9 +79,8 @@
                 <h3 class = "float-text text-white">Nicholas</h3>
             </div>
             </a>
-
+            
             <div class = "clearfix"></div>
-
         </div>
 
     </section>
