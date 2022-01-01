@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Restaurant & Delivery</title>
-
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+
     <!-- navber start-->
     <section class = "navbar">
         <div class = "container">
-            <a href="home.php">
             <div class = "logo">
-                <img src = "images/logo.png" alt = "page logo" class= "img-responsive">
+                <img src = "images/lx.png" alt = "page logo" class= "img-responsive">
 
             </div>
-            </a>
 
             <div class = "menu text-right">
                 <ul>
                     <li>
-                        <a href = "home.php"> Home </a>
+                        <a href = "#"> Home </a>
                     </li>
                     <li>
-                        <a href = "category.php"> Category </a>
+                        <a href = "#"> Category </a>
                     </li>
                     <li>
-                        <a href = "food-menu.php"> Order </a>
+                        <a href = "#"> Order </a>
                     </li>
                     <li>
                         <a href = "#"> Table </a>
@@ -46,52 +42,10 @@
     </section>
     <!-- navber ends-->
 
-    <!-- FoodSearch start-->
-    <section class = "food-search text-center">
-        <div class = "container">
-            <form action="">
-                <input type="search" name = "search" placeholder = "Search for food">
-                <input type="submit" name = "submit" value = "search" class= "btn btn-primary">
-            </form>
-        </div>
-    </section>
-    <!-- FoodSearch ends-->
-
-    <!-- category start-->
-    <section class = "category">
-        <div class = "container">
-            <h2 class = "text-center">Categories</h2>
-            <a href="#">
-            <div class = "box-3 float-container" >
-                <img src="images/Pizza.jpg" alt="pizza" class = "img-responsive img-curve">
-                <h3 class = "float-text text-white">Pizza</h3>
-            </div>
-            </a>
-
-            <a href="#">
-            <div class = "box-3 float-container">
-                <img src="images/burger.jpg" alt="burger" class = "img-responsive img-curve">
-                <h3 class = "float-text text-white">Burger</h3>
-            </div>
-            </a>
-
-            <a href="#">
-            <div class = "box-3 float-container">
-                <img src="images/nicholas.jpg" alt="nicholas" class = "img-responsive img-curve">
-                <h3 class = "float-text text-white">Nicholas</h3>
-            </div>
-            </a>
-            
-            <div class = "clearfix"></div>
-        </div>
-
-    </section>
-    <!-- category ends-->
-
     <!-- food-menu start-->
     <section class = "food-menu">
         <div class = "container">
-            <h2 class = "text-center">Explore Foods</h2>
+            <h2 class = "text-center">Food Menu</h2>
             <div class = "food-menu-box">
                 <div class = "food-menu-img">
                     <img src="images/pizza-with-tomato-basil.jpg" alt="Pizza With Tomato Basil" class="img-responsive img-curve">
@@ -174,6 +128,6 @@
         </div>
     </section>
     <!-- footer ends-->
-</body>
 
+</body>
 </html>

@@ -12,15 +12,17 @@
     <!-- navber start-->
     <section class = "navbar">
         <div class = "container">
+            <a href="home.php">
             <div class = "logo">
                 <img src = "images/lx.png" alt = "page logo" class= "img-responsive">
 
             </div>
+            </a>
 
             <div class = "menu text-right">
                 <ul>
                     <li>
-                        <a href = "#"> Home </a>
+                        <a href = "home.php"> Home </a>
                     </li>
                     <li>
                         <a href = "#"> Category </a>
