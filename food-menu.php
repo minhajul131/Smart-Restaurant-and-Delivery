@@ -28,7 +28,7 @@
                     <p class="food-prize">$2.9</p>
                     <p class="food-detail">Jimmy Willy Pizza</p>
                     <br>
-                    <a href="#" class="btn btn-primary">Order now</a>
+                    <a href="order-option.php" class="btn btn-primary">Order now</a>
                 </div>
                 <div class = "clearfix"></div>
             </div>

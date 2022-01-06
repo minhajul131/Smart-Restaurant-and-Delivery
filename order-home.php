@@ -27,14 +27,17 @@
             <fieldset>
                 <legend>Delivery Details</legend>
 
-                <div class="order-label">Table Number</div>
-                <input type="tel" name="table" placeholder="enter table number" class="input-responsive" required>
-
                 <div class="order-label">Full Name</div>
                 <input type="text" name="full-name" placeholder="Enter your name" class="input-responsive" required>
 
                 <div class="order-label">Phone Number</div>
                 <input type="tel" name="contact" placeholder="enter your number" class="input-responsive" required>
+
+                <div class="order-label">Email</div>
+                <input type="email" name="email" placeholder="Enter your email" class="input-responsive" required>
+
+                <div class="order-label">Address</div>
+                <textarea name="address" rows="10" placeholder="enter your full address" class="input-responsive" required></textarea>
 
                 <input type="submit" name="submit" value="Confirm Order" class="btn btn-primary">
             </fieldset>
