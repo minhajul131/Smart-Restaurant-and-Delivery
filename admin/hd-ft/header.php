@@ -1,3 +1,7 @@
+<?php 
+    include('../connection/connector.php'); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
