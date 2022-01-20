@@ -2,10 +2,18 @@
 
 <div class="manage">
     <div class = "wrapper">
-        <h1>Admin Control</h1>
+        <h1>Admin Detail</h1>
         <br>
         <br>
-
+        <?php 
+            if(isset($_SESSION['add'])) //Checking whether the SEssion is Set of Not
+            {
+                echo $_SESSION['add']; //Display the SEssion Message if SEt
+                unset($_SESSION['add']); //Remove Session Message
+            }
+        ?>
+        
+        
         <form action="" method="POST">
             <table class="table-30">
                 <tr>
@@ -69,21 +77,36 @@
     }
 
         //sql quary
-    $sql = "INSERT INTO table_admin SET
+    /*$sql = "INSERT INTO table_admin SET
         full_name='$full_name',
         contact_number='$contact_number',
         email='$email',
         user_name='$user_name',
         password='$password'
-    ";
+    ";*/
 
-    //saving data into datbase
+    $sql = "INSERT INTO table_admin ( `full_name`, `contact_number`, `email`, `username`, `password`) VALUES ('$full_name','$contact_number','$email','$user_name','$password')";
+
     $res = mysqli_query($conn, $sql) or die(mysqli_error());
 
-    //Check whether data is inserted or not
-    if($res==TRUE){
-        $_SESSION['add'] = "<div class='success'>Added Successfully.</div>";
-        //redirect to admin control
-        header("location:".SITEURL.'admin/manage-admin.php');
+    /*//Check whether data is inserted or not
+    if($res==TRUE)
+        {
+            //Data Inserted
+            //echo "Data Inserted";
+            //Create a Session Variable to Display Message
+            $_SESSION['add'] = "<div class='success'>Admin Added Successfully.</div>";
+            //Redirect Page to Manage Admin
+            header("location:".SITEURL.'admin/admin-control.php');
         }
+        else
+        {
+            //FAiled to Insert DAta
+            //echo "Faile to Insert Data";
+            //Create a Session Variable to Display Message
+            $_SESSION['add'] = "<div class='error'>Failed to Add Admin.</div>";
+            //Redirect Page to Add Admin
+            header("location:".SITEURL.'admin/new-admin.php');
+        }*/
+
 ?>
