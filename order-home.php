@@ -1,4 +1,4 @@
-<?php include('common/header.php'); ?>
+<?php include('hf-ft-front/header.php'); ?>
 
 
 <!-- order detail -->
@@ -48,4 +48,4 @@
 <!-- order detail -->
 
 
-<?php include('common/footer.php'); ?>
+<?php include('hf-ft-front/footer.php'); ?>

@@ -1,4 +1,4 @@
-<?php include('common/header.php'); ?>
+<?php include('hf-ft-front/header.php'); ?>
 
     <!-- category start-->
     <section class = "category">
@@ -74,4 +74,4 @@
     </section>
     <!-- category ends-->
 
-    <?php include('common/footer.php'); ?>
+    <?php include('hf-ft-front/footer.php'); ?>

@@ -1,4 +1,4 @@
-<?php include('common/header.php'); ?>
+<?php include('hf-ft-front/header.php'); ?>
 
     <!-- food-menu start-->
     <section class = "food-menu">
@@ -79,4 +79,4 @@
     </section>
     <!-- food-menu ends-->
 
-    <?php include('common/footer.php'); ?>
+    <?php include('hf-ft-front/footer.php'); ?>

@@ -16,7 +16,7 @@
         <div class="wrapper">
             <ul>
                 <li><a href="home.php">Home</a></li>
-                <li><a href="#">Hbddsf</a></li>
+                <li><a href="admin-control.php">Admin</a></li>
                     
             </ul>
         </div>

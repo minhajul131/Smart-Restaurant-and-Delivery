@@ -1,4 +1,4 @@
-<?php include('common/header.php'); ?>
+<?php include('hf-ft-front/header.php'); ?>
 
     <!-- FoodSearch start-->
     <section class = "food-search text-center">
@@ -121,4 +121,4 @@
     </section>
     <!-- food-menu ends-->
 
-<?php include('common/footer.php'); ?>
+<?php include('hf-ft-front/footer.php'); ?>
