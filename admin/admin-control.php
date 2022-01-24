@@ -16,6 +16,11 @@
                     echo $_SESSION['delete']; //Display the Session Message if Set
                     unset($_SESSION['delete']); //Remove Session Message
                 }
+                if(isset($_SESSION['update'])){
+
+                    echo $_SESSION['update']; //Display the Session Message if Set
+                    unset($_SESSION['update']); //Remove Session Message
+                }
             ?>
 
             <br />

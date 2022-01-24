@@ -9,7 +9,7 @@
                 $id=$_GET['id'];
 
                 //SQL Query to Get data
-                $sql="SELECT * FROM tbl_admin WHERE id=$id";
+                $sql="SELECT * FROM table_admin WHERE id=$id";
 
                 $res=mysqli_query($conn, $sql);
 
@@ -24,10 +24,10 @@
                         //echo "Admin Available";
                         $row=mysqli_fetch_assoc($res);
 
-                        $full_name = $rows['full_name'];
-                        $contact_number = $rows['contact_number'];
-                        $email = $rows['email'];
-                        $username = $rows['username'];
+                        $full_name = $row['full_name'];
+                        $contact_number = $row['contact_number'];
+                        $email = $row['email'];
+                        $username = $row['username'];
                     }
                     else{
                         //Redirect to Manage Admin PAge
@@ -74,8 +74,47 @@
                 
             </form>
 
-
         </div>
     </div>
 
 <?php include('hd-ft/footer.php'); ?>
+
+<?php 
+
+    //Check whether the Submit Button is Clicked or not
+    if(isset($_POST['submit']))
+    {
+        //echo "Button CLicked";
+        //Get all the values from form to update
+        $id = $_POST['id'];
+        $full_name = $_POST['full_name'];
+        $contact_number = $_POST['contact_number'];
+        $email = $_POST['email'];
+        $username = $_POST['username'];
+
+        //SQL Query to Update Admin
+                
+        $sql = "UPDATE table_admin SET `full_name`='$full_name',
+        `contact_number`='$contact_number',`email`='$email',`username`='$username' WHERE id='$id' ";
+
+        //Execute the Query
+        $res = mysqli_query($conn, $sql);
+
+        //Check whether the query executed successfully or not
+        if($res==true)
+        {
+            //Query Executed and Admin Updated
+            $_SESSION['update'] = "<div class='success'>Admin Updated Successfully.</div>";
+            //Redirect to Admin
+            header('location:'.SITEURL.'admin/admin-control.php');
+        }
+        else
+        {
+            //Failed to Update
+            $_SESSION['update'] = "<div class='error'>Failed to Delete Admin.</div>";
+            //Redirect to Admin
+            header('location:'.SITEURL.'admin/admin-control.php');
+        }
+    }
+
+?>
