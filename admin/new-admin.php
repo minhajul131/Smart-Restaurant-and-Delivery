@@ -84,7 +84,8 @@
             password='$password'
         ";*/
 
-        $sql = "INSERT INTO table_admin ( `full_name`, `contact_number`, `email`, `username`, `password`) VALUES ('$full_name','$contact_number','$email','$user_name','$password')";
+        $sql = "INSERT INTO table_admin ( `full_name`, `contact_number`, `email`, `username`, `password`) 
+        VALUES ('$full_name','$contact_number','$email','$user_name','$password')";
 
         $res = mysqli_query($conn, $sql) or die(mysqli_error());
 

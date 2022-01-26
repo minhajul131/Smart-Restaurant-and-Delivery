@@ -96,3 +96,56 @@ table tr td{
     background-color: #2c2c54;
     color: white;
 }
+
+
+
+
+/* sign up page................................................................*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.row{
+    background: white;
+    border-radius: 30px;
+    box-shadow: 12px 12px 22px;
+}
+.signUp img{
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+}
+.signUp h4{
+    font-size: 5rem;
+    font-weight: 700;
+    font-family: 'Kaushan Script', cursive;
+}
+.up{
+    margin: 15%;
+}
+.inp{
+    height: 50px;
+    width: 70%;
+    margin: 10px;
+    border: none;
+    outline: none;
+    border-radius: 60px;
+    box-shadow: -1px 1px 30px -11px rgba(0,0,0,0.75);
+-webkit-box-shadow: -1px 1px 30px -11px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 1px 30px -11px rgba(0,0,0,0.75);
+}
+.signUpBtn{
+    height: 50px;
+    width: 50%;
+    border: none;
+    outline: none;
+    margin: 30px;
+    border-radius: 60px;
+    font-weight: 600;
+    background: greenyellow;
+    color: white;
+}
+.signUpBtn:hover{
+    background: green;
+    transition: 0.5s;
+}
