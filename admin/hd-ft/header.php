@@ -31,7 +31,9 @@
         <div class="wrapper">
             <ul>
                 <li><a href="home.php">Home</a></li>
-                <li><a href="admin-control.php">Admin</a></li>
+                <li><a href="control-admin.php">Admin</a></li>
+                <li><a href="control-category.php">Category</a></li>
+                <li><a href="control-food.php">Food</a></li>
                 <li><a href="signout.php">Sign Out</a></li>
                     
             </ul>

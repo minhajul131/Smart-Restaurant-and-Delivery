@@ -31,7 +31,7 @@
                     }
                     else{
                         //Redirect to Manage Admin PAge
-                        header('location:'.SITEURL.'admin/admin-control.php');
+                        header('location:'.SITEURL.'admin/control-admin.php');
                     }
                 }
             
@@ -106,14 +106,14 @@
             //Query Executed and Admin Updated
             $_SESSION['update'] = "<div class='success'>Admin Updated Successfully.</div>";
             //Redirect to Admin
-            header('location:'.SITEURL.'admin/admin-control.php');
+            header('location:'.SITEURL.'admin/control-admin.php');
         }
         else
         {
             //Failed to Update
             $_SESSION['update'] = "<div class='error'>Failed to Delete Admin.</div>";
             //Redirect to Admin
-            header('location:'.SITEURL.'admin/admin-control.php');
+            header('location:'.SITEURL.'admin/control-admin.php');
         }
     }
 

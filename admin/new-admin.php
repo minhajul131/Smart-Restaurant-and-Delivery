@@ -76,14 +76,6 @@
         $password = $_POST['password'];
     
         //sql quary
-        /*$sql = "INSERT INTO table_admin SET
-            full_name='$full_name',
-            contact_number='$contact_number',
-            email='$email',
-            user_name='$user_name',
-            password='$password'
-        ";*/
-
         $sql = "INSERT INTO table_admin ( `full_name`, `contact_number`, `email`, `username`, `password`) 
         VALUES ('$full_name','$contact_number','$email','$user_name','$password')";
 
@@ -97,7 +89,7 @@
                 //Create a Session Variable to Display Message
                 $_SESSION['add'] = "<div class='success'>Admin Added Successfully.</div>";
                 //Redirect Page to Manage Admin
-                header("location:".SITEURL.'admin/admin-control.php');
+                header("location:".SITEURL.'admin/control-admin.php');
             }
             else
             {
