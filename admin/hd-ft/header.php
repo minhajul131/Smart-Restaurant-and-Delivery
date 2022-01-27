@@ -1,5 +1,20 @@
 <?php include('../connection/connector.php'); ?>
 
+<?php 
+
+    //AUthorization - Access COntrol
+    //CHeck whether the user is logged in or not
+    if(!isset($_SESSION['user'])) //IF user session is not set
+    {
+        //User is not logged in
+        //Redirect to login page with message
+        $_SESSION['no-login-message'] = "<div class='error text-center'>Please login to access Admin Panel.</div>";
+        //Redirect to Login Page
+        header('location:'.SITEURL.'admin/signin.php');
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +32,7 @@
             <ul>
                 <li><a href="home.php">Home</a></li>
                 <li><a href="admin-control.php">Admin</a></li>
+                <li><a href="signout.php">Sign Out</a></li>
                     
             </ul>
         </div>

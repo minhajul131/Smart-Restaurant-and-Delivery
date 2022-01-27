@@ -40,12 +40,12 @@
                             </div>
                             <div class = form-row py-3>
                                 <div class = "offset-1 col-lg-10">
-                                    <input type="text" name="password" class = "inp px-3" placeholder="password">
+                                    <input type="password" name="password" class = "inp px-3" placeholder="password">
                                 </div>
                             </div>
                             <div class = form-row py-3>
                                 <div class = "offset-1 col-lg-10">
-                                    <input type="submit" name="submit" value="Sign Up" class="signUpBtn">
+                                    <input type="submit" name="submit" value="Sign In" class="signUpBtn">
                                 </div>
                             </div>
                         </form>
@@ -66,15 +66,15 @@
     {
         //Process for Login
         //1. Get the Data from Login form
-         $username = $_POST['username'];
-         $password = md5($_POST['password']);
+        $username = $_POST['username'];
+        $password = $_POST['password'];
         //$username = mysqli_real_escape_string($conn, $_POST['username']);
         
         //$raw_password = ($_POST['password']);
         //$password = mysqli_real_escape_string($conn, $raw_password);
 
         //2. SQL to check whether the user with username and password exists or not
-        $sql = "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
+        $sql = "SELECT * FROM table_admin WHERE username='$username' AND password='$password'";
 
         //3. Execute the Query
         $res = mysqli_query($conn, $sql);
