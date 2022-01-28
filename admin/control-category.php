@@ -57,6 +57,7 @@
             <a href="<?php echo SITEURL;?>admin/new-category.php" class="btn-add">Add New Catregory</a>
             <br>
             <br>
+            <br>
 
             <table class="table-full">
                     <tr>
