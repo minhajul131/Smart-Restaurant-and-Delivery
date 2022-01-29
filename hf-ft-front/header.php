@@ -1,47 +1,47 @@
+<?php include('connection/connector.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Restaurant & Delivery</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <link rel="stylesheet" href="css/style.css">
+  <title>Smart Restaurant and Delivery</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
-    <!-- navber start-->
-    <section class = "navbar">
-        <div class = "container">
-            <a href="home.php">
-            <div class = "logo">
-                <img src = "images/logo.png" alt = "page logo" class= "img-responsive">
 
-            </div>
-            </a>
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex justify-content-center justify-content-md-between">
 
-            <div class = "menu text-right">
-                <ul>
-                    <li>
-                        <a href = "home.php"> Home </a>
-                    </li>
-                    <li>
-                        <a href = "category.php"> Category </a>
-                    </li>
-                    <li>
-                        <a href = "food-menu.php"> Order </a>
-                    </li>
-                    <li>
-                        <a href = "#"> Table </a>
-                    </li>
-                    <li>
-                        <a href = "#"> Contact Us </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class = "clearfix"></div>
-        </div>
-    </section>
-    <!-- navber ends-->
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-phone d-flex align-items-center"><span>+8801000000000</span></i>
+        <i class="bi bi-clock d-flex align-items-center ms-4"><span> Sat-Thu: 10AM - 08PM</span></i>
+      </div>
+    </div>
+  </div>
+  <!--top bar -->
