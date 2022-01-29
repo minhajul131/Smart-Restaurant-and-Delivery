@@ -568,62 +568,57 @@
 
         <div class="row">
 
-          <div class="col-lg-4 col-md-6">
-            <div class="member" data-aos="zoom-in" data-aos-delay="100">
-              <img src="assets/img/chefs/chefs-1.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Walter White</h4>
-                  <span>Master Chef</span>
-                </div>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+          <?php
+            $sql = " SELECT * FROM table_chef LIMIT 3 ";
+
+            $res = mysqli_query($conn, $sql);
+
+            $count = mysqli_num_rows($res);
+
+            if($count>0){
+              //food available
+              while($rows = mysqli_fetch_assoc($res)){
+                $full_name = $rows['full_name'];
+                $position = $rows['position'];
+                $image_name = $rows['image_name'];
+                ?>
+                <div class="col-lg-4 col-md-6">
+                <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                <?php
+                  //check image
+                  if($image_name==""){
+                    echo "not available";
+                  }
+                  else{
+                    //available
+                ?>
+                    <img src="<?php echo SITEURL; ?>images/chef/<?php echo $image_name ?>" class="img-fluid" alt="">
+                    <?php
+                  }
+                    ?>
+
+                  <div class="member-info">
+                    <div class="member-info-content">
+                      <h4><?php echo $full_name ?></h4>
+                      <span><?php echo $position ?></span>
+                    </div>
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="member" data-aos="zoom-in" data-aos-delay="200">
-              <img src="assets/img/chefs/chefs-2.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Sarah Jhonson</h4>
-                  <span>Patissier</span>
-                </div>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="member" data-aos="zoom-in" data-aos-delay="300">
-              <img src="assets/img/chefs/chefs-3.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>William Anderson</h4>
-                  <span>Cook</span>
-                </div>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
+            </div> 
+            <?php 
+              }
+            }
+            else{
+              echo "Not avilable";
+            }
+          ?>       
         </div>
-
       </div>
     </section><!-- End Chefs Section -->
 
