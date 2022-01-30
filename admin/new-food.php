@@ -7,6 +7,13 @@
         <br><br>
 
         <?php 
+			
+			if(isset($_SESSION['add']))
+            {
+                echo $_SESSION['add'];
+                unset($_SESSION['add']);
+            }
+			
             if(isset($_SESSION['upload']))
             {
                 echo $_SESSION['upload'];
@@ -171,7 +178,7 @@
                         $ext = end(explode('.', $image_name));
 
                         // Create New Name for Image
-                        $image_name = "Food-Name-".rand(0000,9999).".".$ext; //New Image Name May Be "Food-Name-657.jpg"
+                        $image_name = "Food-Name-".rand(0000,9999).'.'.$ext; //New Image Name May Be "Food-Name-657.jpg"
 
                         //B. Upload the Image
                         //Get the Src Path and DEstinaton path
@@ -227,13 +234,13 @@
                 {
                     //Data inserted Successfullly
                     $_SESSION['add'] = "<div class='success'>Food Added Successfully.</div>";
-                    header('location:'.SITEURL.'admin/control-food.php');
+                    header('location:'.SITEURL.'admin/control-category.php');
                 }
                 else
                 {
                     //FAiled to Insert Data
                     $_SESSION['add'] = "<div class='error'>Failed to Add Food.</div>";
-                    header('location:'.SITEURL.'admin/control-food.php');
+                    header('location:'.SITEURL.'admin/new-food.php');
                 }
 
                 

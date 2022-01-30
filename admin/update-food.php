@@ -272,7 +272,7 @@
                 {
                     //Failed to Update Food
                     $_SESSION['update'] = "<div class='error'>Failed to Update Food.</div>";
-                    header('location:'.SITEURL.'admin/control-food.php');
+                    header('location:'.SITEURL.'admin/update-food.php');
                 }
 
                 

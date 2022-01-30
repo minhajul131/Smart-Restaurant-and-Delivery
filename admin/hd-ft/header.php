@@ -31,6 +31,7 @@
         <div class="wrapper">
             <ul>
                 <li><a href="home.php">Home</a></li>
+                <li><a href="control-user.php">User</a></li>
                 <li><a href="control-admin.php">Admin</a></li>
                 <li><a href="control-chef.php">Chef</a></li>
                 <li><a href="control-category.php">Category</a></li>

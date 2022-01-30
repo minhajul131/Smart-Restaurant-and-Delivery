@@ -1,7 +1,7 @@
 <?php include('hf-ft-front/header.php'); ?>
 
   <?php
-  //check id pass or not
+    //check id pass or not
     if(isset($_GET['category_id'])){
       //id set and get
       $category_id = $_GET['category_id'];
