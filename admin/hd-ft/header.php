@@ -1,7 +1,5 @@
 <?php include('../connection/connector.php'); ?>
-
 <?php 
-
     //AUthorization - Access COntrol
     //CHeck whether the user is logged in or not
     if(!isset($_SESSION['user'])) //IF user session is not set
@@ -12,9 +10,7 @@
         //Redirect to Login Page
         header('location:'.SITEURL.'admin/signin.php');
     }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +18,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart-Restaurant-and-Delivery</title>
-
+    <!--css link-->
     <link rel="stylesheet" href="../css/back-end.css">
 </head>
 <body>

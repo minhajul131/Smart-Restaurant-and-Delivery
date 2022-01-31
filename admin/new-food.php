@@ -1,26 +1,22 @@
 <?php include('hd-ft/header.php'); ?>
-
 <div class="manage">
     <div class="wrapper">
-        <h1>Add Food</h1>
-
+        <h1>Food Detail</h1>
         <br><br>
-
         <?php 
-			
-			if(isset($_SESSION['add']))
+
+            if(isset($_SESSION['add']))
             {
                 echo $_SESSION['add'];
                 unset($_SESSION['add']);
             }
-			
             if(isset($_SESSION['upload']))
             {
                 echo $_SESSION['upload'];
                 unset($_SESSION['upload']);
             }
         ?>
-
+        <br><br>
         <form action="" method="POST" enctype="multipart/form-data">
         
             <table class="table-30">
@@ -57,7 +53,6 @@
                     <td>Category: </td>
                     <td>
                         <select name="category">
-
                             <?php 
                                 //Create PHP Code to display categories from Database
                                 //1. CReate SQL to get all active categories from database
@@ -92,13 +87,19 @@
                                     ?>
                                     <option value="0">No Category Found</option>
                                     <?php
-                                }
-                            
-
+                                }                       
                                 //2. Display on Drpopdown
                             ?>
 
                         </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Special: </td>
+                    <td>
+                        <input type="radio" name="special" value="Yes"> Yes 
+                        <input type="radio" name="special" value="No"> No
                     </td>
                 </tr>
 
@@ -127,8 +128,6 @@
             </table>
 
         </form>
-
-        
         <?php 
 
             //CHeck whether the button is clicked or not
@@ -144,6 +143,14 @@
                 $category = $_POST['category'];
 
                 //Check whether radion button for featured and active are checked or not
+                if(isset($_POST['special']))
+                {
+                    $special = $_POST['special'];
+                }
+                else
+                {
+                    $special = "No"; //SEtting the Default Value
+                }
                 if(isset($_POST['featured']))
                 {
                     $featured = $_POST['featured'];
@@ -176,10 +183,10 @@
                         //A. REnamge the Image
                         //Get the extension of selected image (jpg, png, gif, etc.) "vijay-thapa.jpg" vijay-thapa jpg
                         $ext = end(explode('.', $image_name));
-
+                        
                         // Create New Name for Image
-                        $image_name = "Food-Name-".rand(0000,9999).'.'.$ext; //New Image Name May Be "Food-Name-657.jpg"
-
+                        $image_name = "Food_Name_".rand(000, 999).'.'.$ext; //New Image Name May Be "Food-Name-657.jpg"
+                        
                         //B. Upload the Image
                         //Get the Src Path and DEstinaton path
 
@@ -221,6 +228,7 @@
                     price = $price,
                     image_name = '$image_name',
                     category_id = $category,
+                    special = '$special',
                     featured = '$featured',
                     active = '$active'
                 ";
@@ -230,11 +238,14 @@
 
                 //CHeck whether data inserted or not
                 //4. Redirect with MEssage to Manage Food page
-                if($res2 == true)
+                if($res2==true)
                 {
                     //Data inserted Successfullly
                     $_SESSION['add'] = "<div class='success'>Food Added Successfully.</div>";
-                    header('location:'.SITEURL.'admin/control-category.php');
+                    ?>
+                    <!--header('location:'.SITEURL.'admin/control-food.php');-->
+                    <script>window.location.href='http://localhost/Smart-Restaurant-and-Delivery/admin/control-food.php';</script>
+                    <?php
                 }
                 else
                 {
@@ -242,13 +253,10 @@
                     $_SESSION['add'] = "<div class='error'>Failed to Add Food.</div>";
                     header('location:'.SITEURL.'admin/new-food.php');
                 }
-
                 
             }
 
         ?>
-
-
     </div>
 </div>
 

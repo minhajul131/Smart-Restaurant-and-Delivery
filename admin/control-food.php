@@ -4,45 +4,42 @@
         <div class = "wrapper">
             <h1>Food Control</h1>
             <br>
-            <br>
+            <?php 
+                if(isset($_SESSION['add']))
+                {
+                    echo $_SESSION['add'];
+                    unset($_SESSION['add']);
+                }
 
+                if(isset($_SESSION['delete']))
+                {
+                    echo $_SESSION['delete'];
+                    unset($_SESSION['delete']);
+                }
+
+                if(isset($_SESSION['upload']))
+                {
+                    echo $_SESSION['upload'];
+                    unset($_SESSION['upload']);
+                }
+
+                if(isset($_SESSION['unauthorize']))
+                {
+                    echo $_SESSION['unauthorize'];
+                    unset($_SESSION['unauthorize']);
+                }
+
+                if(isset($_SESSION['update']))
+                {
+                    echo $_SESSION['update'];
+                    unset($_SESSION['update']);
+                }
+
+            ?>
+            <br>
             <!-- Button to Add food -->
             <a href="<?php echo SITEURL; ?>admin/new-food.php" class="btn-add">Add Food</a>
-
-<br /><br /><br />
-
-<?php 
-    if(isset($_SESSION['add']))
-    {
-        echo $_SESSION['add'];
-        unset($_SESSION['add']);
-    }
-
-    if(isset($_SESSION['delete']))
-    {
-        echo $_SESSION['delete'];
-        unset($_SESSION['delete']);
-    }
-
-    if(isset($_SESSION['upload']))
-    {
-        echo $_SESSION['upload'];
-        unset($_SESSION['upload']);
-    }
-
-    if(isset($_SESSION['unauthorize']))
-    {
-        echo $_SESSION['unauthorize'];
-        unset($_SESSION['unauthorize']);
-    }
-
-    if(isset($_SESSION['update']))
-    {
-        echo $_SESSION['update'];
-        unset($_SESSION['update']);
-    }
-
-?>
+            <br><br>
 
 <table class="table-full">
     <tr>
@@ -50,11 +47,11 @@
         <th>Title</th>
         <th>Price</th>
         <th>Image</th>
+        <th>Special</th>
         <th>Featured</th>
         <th>Active</th>
         <th>Actions</th>
     </tr>
-
     <?php 
         //Create a SQL Query to Get all the Food
         $sql = "SELECT * FROM table_food";
@@ -79,10 +76,10 @@
                 $title = $row['title'];
                 $price = $row['price'];
                 $image_name = $row['image_name'];
+                $special = $row['special'];
                 $featured = $row['featured'];
                 $active = $row['active'];
                 ?>
-
                 <tr>
                     <td><?php echo $sn++; ?>. </td>
                     <td><?php echo $title; ?></td>
@@ -104,6 +101,7 @@
                             }
                         ?>
                     </td>
+                    <td><?php echo $special; ?></td>
                     <td><?php echo $featured; ?></td>
                     <td><?php echo $active; ?></td>
                     <td>
@@ -111,7 +109,6 @@
                         <a href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-delete">Delete Food</a>
                     </td>
                 </tr>
-
                 <?php
             }
         }
@@ -122,8 +119,6 @@
         }
 
     ?>
-
-    
 </table>
             
         </div>

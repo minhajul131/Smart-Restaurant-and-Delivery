@@ -10,6 +10,31 @@
         $user_name = $_POST['user_name'];
         $password = $_POST['password'];
 
+        
+
+        $errors = array();
+
+        $u = "SELECT username FROM user_signup WHERE username = '$user_name' ";
+        $uu = mysqli_query($conn, $u);
+
+        $e = "SELECT email FROM user_signup WHERE email = '$email' ";
+        $ee = mysqli_query($conn, $e);
+        
+        if(empty($user_name)){
+            $errors['u']= "username required";
+        }else if(mysqli_num_rows($uu)>0){
+            $errors['u']= "username exits";
+        }
+
+        if(empty($email)){
+            $errors['e']= "email required";
+        }else if(mysqli_num_rows($ee)>0){
+            $errors['e']= "email exits";
+        }
+        if(empty($password)){
+            $errors['p']= "password required";
+        }
+
         if(isset($_FILES['image']['name']))
         {
           //Upload the Image
@@ -53,29 +78,6 @@
         $image_name="";
         }
 
-        $errors = array();
-
-        $u = "SELECT username FROM user_signup WHERE username = '$user_name' ";
-        $uu = mysqli_query($conn, $u);
-
-        $e = "SELECT email FROM user_signup WHERE email = '$email' ";
-        $ee = mysqli_query($conn, $e);
-        
-        if(empty($user_name)){
-            $errors['u']= "username required";
-        }else if(mysqli_num_rows($uu)>0){
-            $errors['u']= "username exits";
-        }
-
-        if(empty($email)){
-            $errors['e']= "email required";
-        }else if(mysqli_num_rows($ee)>0){
-            $errors['e']= "email exits";
-        }
-        if(empty($password)){
-            $errors['p']= "password required";
-        }
-
         //sql quary
         if(count($errors)==0){
           
@@ -93,7 +95,7 @@
                     //Create a Session Variable to Display Message
                     $_SESSION['add'] = "<div class='success'>User Added Successfully.</div>";
                     //Redirect Page to Manage Admin
-                    header("location:".SITEURL.'food-category.php');
+                    header("location:".SITEURL.'user-signin.php');
             }
             else
             {
@@ -115,9 +117,6 @@
     <h1 class="logo me-auto me-lg-0"><a href="home.php">Restaurant</a></h1>
     <!-- Uncomment below if you prefer to use an image logo -->
     <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      
-    <a href="<?php echo SITEURL;?>food-category.php" class="book-a-table-btn scrollto d-none d-lg-flex">Foods By Category</a>
-
   </div>
 </header>
 <!-- End Header -->
@@ -127,88 +126,82 @@
   <section class="breadcrumbs">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center">
-        <h2>Sign Up</h2>
+      <h2>Create Account</h2>
       </div>
     </div>
   </section>
 
-  <section class="chefs" >
+  <section>
     <div class="container">
       <div class="section-title">
-        <h2>Create Account</h2>
         <p>Enter Your Details</p>
       </div>
 
-      <section id="contact" class="contact">
-        <div class="container" data-aos="fade-up">
-          <div class="row mt-5">
-            <div class="col-lg-8 mt-5 mt-lg-0">
-              <!-- edit -->
-              <?php 
-                if(isset($_SESSION['add'])) //Checking whether the Session is Set of Not
-                {
-                  echo $_SESSION['add']; //Display the Session Message if Set
-                  unset($_SESSION['add']); //Remove Session Message
-                }
-                if(isset($_SESSION['upload']))
-                {
-                  echo $_SESSION['upload'];
-                  unset($_SESSION['upload']);
-                }
-              ?>
+      <div class="row mt-5">
+        <div class="offset-md-3 col-lg-12 mt-5 mt-lg-0">
+          <!-- edit -->
+          <?php 
+            if(isset($_SESSION['add'])) //Checking whether the Session is Set of Not
+            {
+              echo $_SESSION['add']; //Display the Session Message if Set
+              unset($_SESSION['add']); //Remove Session Message
+            }
+            if(isset($_SESSION['upload']))
+            {
+              echo $_SESSION['upload'];
+              unset($_SESSION['upload']);
+            }
+          ?>
                       
-                  <form action="" method="POST">
+          <form action="" method="POST" enctype="multipart/form-data">
 
-                    <div class="form-group mt-3">
-                      <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <label class="form-label" for="form1Example13">Your Name</label>
-                        <input type="text" class="form-control" name="full_name" placeholder="Your Full Name" required>
-                      </div>
-                      <br>
-                      <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <label class="form-label" for="form1Example13">Your Email Address</label>
-                        <input type="email" class="form-control" name="email" placeholder="Your Email">
-                        <p><?php if(isset($errors['e'])) echo $errors['e']; ?></p>
-                      </div>
-                      <br>
-                      <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <label class="form-label" for="form1Example13">Your Contact Number</label>
-                        <input type="text" class="form-control" name="contact_number" placeholder="Your contact number" required>
-                      </div>
-                      <br>
-                      <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <label class="form-label" for="form1Example13">Your Image</label>
-                        <input type="file" class="form-control" name="image">
-                      </div>
-                      <br>
-                      <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <label class="form-label" for="form1Example13">Your Username</label>
-                        <input type="text" class="form-control" name="user_name" placeholder="Your username">
-                        <p><?php if(isset($errors['u'])) echo $errors['u']; ?></p>
-                      </div>
-                      <br>
-                      <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <label class="form-label" for="form1Example13">Your Password</label>
-                        <input type="password" class="form-control" name="password" placeholder="Your password">
-                        <p><?php if(isset($errors['p'])) echo $errors['p']; ?></p>
-                      </div>
-                      <br>
-                      <div>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block col-md-6" name="submit">Create Account</button>
-                      </div>
+            <div class=" form-group mt-3">
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <label class="form-label" for="form1Example13">Your Name</label>
+                <input type="text" class="form-control" name="full_name" placeholder="Your Full Name" required>
+              </div>
+              <br>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <label class="form-label" for="form1Example13">Your Email Address</label>
+                <input type="email" class="form-control" name="email" placeholder="Your Email">
+                <p><?php if(isset($errors['e'])) echo $errors['e']; ?></p>
+              </div>
+              <br>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <label class="form-label" for="form1Example13">Your Contact Number</label>
+                <input type="text" class="form-control" name="contact_number" placeholder="Your contact number" required>
+                </div>
+              <br>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <label class="form-label" for="form1Example13">Your Image</label>
+                <input type="file" class="form-control" name="image">
+              </div>
+              <br>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <label class="form-label" for="form1Example13">Your Username</label>
+                <input type="text" class="form-control" name="user_name" placeholder="Your username">
+                <p><?php if(isset($errors['u'])) echo $errors['u']; ?></p>
+              </div>
+              <br>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <label class="form-label" for="form1Example13">Your Password</label>
+                <input type="password" class="form-control" name="password" placeholder="Your password">
+                <p><?php if(isset($errors['p'])) echo $errors['p']; ?></p>
+              </div>
+              <br>
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block col-md-6" name="submit">Create Account</button>
+              </div>
                       
-                    </div>
-
-                  </form>
-
-              <!-- edit -->
-              
             </div>
-          </div>
-                  
-        </div>
-      </section>
 
+          </form>
+
+          <!-- edit -->
+              
+        </div>
+      </div>
+                  
     </div>
   </section>
 </main>

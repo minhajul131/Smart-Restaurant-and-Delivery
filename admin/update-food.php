@@ -21,6 +21,7 @@
         $price = $row2['price'];
         $current_image = $row2['image_name'];
         $current_category = $row2['category_id'];
+        $special = $row2['special'];
         $featured = $row2['featured'];
         $active = $row2['active'];
 
@@ -131,6 +132,14 @@
             </tr>
 
             <tr>
+                <td>Special: </td>
+                <td>
+                    <input <?php if($special=="Yes") {echo "checked";} ?> type="radio" name="special" value="Yes"> Yes 
+                    <input <?php if($special=="No") {echo "checked";} ?> type="radio" name="special" value="No"> No 
+                </td>
+            </tr>
+
+            <tr>
                 <td>Featured: </td>
                 <td>
                     <input <?php if($featured=="Yes") {echo "checked";} ?> type="radio" name="featured" value="Yes"> Yes 
@@ -172,7 +181,7 @@
                 $price = $_POST['price'];
                 $current_image = $_POST['current_image'];
                 $category = $_POST['category'];
-
+                $special = $_POST['special'];
                 $featured = $_POST['featured'];
                 $active = $_POST['active'];
 
@@ -253,6 +262,7 @@
                     price = $price,
                     image_name = '$image_name',
                     category_id = '$category',
+                    special = '$special',
                     featured = '$featured',
                     active = '$active'
                     WHERE id=$id
@@ -266,7 +276,10 @@
                 {
                     //Query Exectued and Food Updated
                     $_SESSION['update'] = "<div class='success'>Food Updated Successfully.</div>";
-                    header('location:'.SITEURL.'admin/control-food.php');
+                    ?>
+                    <!--header('location:'.SITEURL.'admin/control-food.php');-->
+                    <script>window.location.href='http://localhost/Smart-Restaurant-and-Delivery/admin/control-food.php';</script>
+                    <?php
                 }
                 else
                 {
