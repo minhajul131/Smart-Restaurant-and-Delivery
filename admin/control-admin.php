@@ -23,10 +23,10 @@
                 }
             ?>
 
-            <br />
+            <br>
             <!-- Button to Add Admin -->
             <a href="new-admin.php" class="btn-add">Add Admin</a>
-            <br />
+            <br>
             <br>
             <br>
 

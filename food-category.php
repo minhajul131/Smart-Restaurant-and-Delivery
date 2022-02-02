@@ -8,9 +8,12 @@
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-      
-      <a href="<?php echo SITEURL;?>food-category.php" class="book-a-table-btn scrollto d-none d-lg-flex">Foods By Category</a>
-
+      <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+      <li><a class="nav-link scrollto" href="<?php echo SITEURL;?>food-category.php" class="book-a-table-btn scrollto d-none d-lg-flex">Foods By Category</a></li>
+</ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
     </div>
   </header>
   <!-- End Header -->

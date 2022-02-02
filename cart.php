@@ -1,7 +1,61 @@
 <?php 
-  //session_start();
+ 
   include('hf-ft-front/header.php'); 
-  $cart = $_SESSION['cart'];
+  include("functions.php");
+  if(isset($_GET['id'])){
+    $food_id=$_GET['id'];
+    echo $_GET['id']; 
+    
+    $ip_add=getRealIpUser();
+    echo $ip_add;
+  
+    $sql = " SELECT * FROM cart WHERE ip_add= '$ip_add' AND food_id='$food_id' ";
+
+    $res = mysqli_query($conn, $sql);
+
+    $count = mysqli_num_rows($res);
+    if($count>0){
+            echo "already added";   
+    }else{
+      $sql2 = " SELECT * FROM table_food WHERE id='$food_id'  ";
+
+      $res2 = mysqli_query($conn, $sql2);
+
+      $count2 = mysqli_num_rows($res2);
+
+      if($count2>0){
+        //food available
+        while($row2 = mysqli_fetch_assoc($res2)){
+          $image_name = $row2['image_name'];
+          $title = $row2['title'];
+          $price = $row2['price'];
+        }
+                    /*$insert_pending_order= "insert into cart (ip_add,food_id,quantity,price) values
+          ('$ip_add','$food_id',1,'$price')";
+          $run_pending_order=mysqli_query($con,$insert_pending_order);*/
+        $sql3 = "INSERT INTO cart SET 
+          ip_add='$ip_add',
+          food_id='$food_id',
+          quantity=1,
+          price='$price'
+        ";
+
+        //3. Execute the Query and Save in Database
+        $res = mysqli_query($conn, $sql3);
+
+        //4. Check whether the query executed or not and data added or not
+        if($res==true)
+        {
+                      
+        }
+        else
+        {
+          echo $res;
+          
+        }
+      }
+    }
+  } 
 ?>
 
 <!-- Header -->
@@ -20,7 +74,7 @@
 </header>
 <!-- End Header -->
 
-<!--cart-->
+  <!--cart-->
   <section class="inner-page">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -30,22 +84,31 @@
               <div class="row g-0 ">
                 <div class="col-lg-8 ">
                   <div class="p-5 ">
-                    <div class="d-flex justify-content-between align-items-center mb-5 ">
-                      <h1 class="fw-bold mb-0 text-white ">Shopping Cart</h1>
-                      <h6 class="mb-0 text-muted">3 items</h6>
-                    </div>
-                    <?php
-                      //print_r($cart);
-                      $total = 0;
-                      foreach ($cart as $key => $value) {
-                        //echo $key . " : " . $value['quantity'] ."<br>";
-                        $cartsql = "SELECT * FROM table_food WHERE id=$key";
-                        $cartres = mysqli_query($conn, $cartsql);
-                        $cartr = mysqli_fetch_assoc($cartres);
-                      
-                    ?>
+                  <div class="d-flex justify-content-between align-items-center mb-5 ">
+                    <h1 class="fw-bold mb-0 text-white ">Your Cart</h1>
+                  </div>
                     <hr class="my-4">
+                    <?php
+                    $sql4 = " SELECT ct.*,tf.* FROM cart ct,table_food tf WHERE ct.food_id=tf.id ";
 
+                    $res4 = mysqli_query($conn, $sql4);
+
+                    $count4 = mysqli_num_rows($res4);
+
+                    if($count4>0){
+                      //food available
+                      $total=0;
+                      while($row4 = mysqli_fetch_assoc($res4)){
+                        $ip_add = $row4['ip_add'];
+                        $food_id = $row4['food_id'];
+                        $quantity = $row4['quantity'];
+                        $price = $row4['price'];
+                        $image_name = $row4['image_name'];
+                        $title = $row4['title'];
+                        $price=$quantity*$price;
+                        $total+=$price;
+                    ?>
+                      
                     <div class="row mb-4 d-flex justify-content-between align-items-center">
                       <div class="col-md-2 col-lg-2 col-xl-2">
                         <img
@@ -57,18 +120,14 @@
                         <h6 class="text-black mb-0"> none</h6>
                       </div>
                       <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                        <button class="btn btn-link px-2"
-                          onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                          <i class="fas fa-minus"></i>
-                        </button>
+                        
 
-                        <input id="form1" min="0" name="quantity" value="1" type="number"
-                          class="form-control form-control-sm" />
+                        <input type='text' name='quantity' data-food_id='<?php echo $food_id ?>' value='<?php echo $quantity ?>' class='form-control form-control-sm'>
+                          
 
-                        <button class="btn btn-link px-2"
-                          onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                          <i class="fas fa-plus"></i>
-                        </button>
+                         
+
+                        
                       </div>
                       <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                         <h6 class="mb-0"><?php echo $price; ?></h6>
@@ -77,7 +136,11 @@
                         <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
                       </div>
                     </div>
-
+                    <?php
+                  }
+                }
+                
+              ?>
                     <hr class="my-4">
 
                     <div class="pt-5">
@@ -92,39 +155,36 @@
                     <hr class="my-4">
 
                     <div class="d-flex justify-content-between mb-4">
-                      <h5 class="text-uppercase">items 3</h5>
-                      <h5>€ 132.00</h5>
+                      <h5 class="text-uppercase">items <?php echo $count4; ?></h5>
+                      
+                      <h5>TK <?php echo $total;
+                      $total+=50;?>
+                      
+                      </h5>
+                      
                     </div>
+                          
+                          
 
-                    <h5 class="text-uppercase mb-3">Shipping</h5>
+                    <h5 class="text-uppercase mb-3">Delivery Charge</h5>
 
                     <div class="mb-4 pb-2">
                       <select class="select">
-                        <option value="1">Standard-Delivery- €5.00</option>
+                        <option value="1">Standard-Delivery- Tk 50</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                         <option value="4">Four</option>
                       </select>
                     </div>
-
-                    <h5 class="text-uppercase mb-3">Give code</h5>
-
-                    <div class="mb-5">
-                      <div class="form-outline">
-                        <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplea2">Enter your code</label>
-                      </div>
-                    </div>
-
                     <hr class="my-4">
 
                     <div class="d-flex justify-content-between mb-5">
                       <h5 class="text-uppercase">Total price</h5>
-                      <h5>€ 137.00</h5>
+                      <h5>TK <?php echo $total?></h5>
                     </div>
 
                     <button type="button" class="btn btn-dark btn-block btn-lg"
-                      data-mdb-ripple-color="dark">Register</button>
+                      data-mdb-ripple-color="dark">Check Out</button>
 
                   </div>
                 </div>
@@ -137,4 +197,29 @@
   </section>
 <!-- end cart -->
 
+
 <?php include('hf-ft-front/footer.php'); ?>
+<script src="js/jquery-331.min.js"></script>
+    <script src="js/bootstrap-337.min.js"></script>
+    <script>
+        $(document).ready(function(data){
+            $(document).on('keyup','.quantity',function(){
+                var id =$(this).data("food_id");
+                var quantity=$(this).val();
+                if(quantity !='')
+                {
+                    $.ajax({
+                        url: "change.php",
+                        method: "POST",
+                        data: {id:id, quantity:quantity},
+                        success:function(){
+                            $("body").load("cart_body.php");
+
+                        }
+
+                    });
+                }
+
+            });
+        });
+    </script>

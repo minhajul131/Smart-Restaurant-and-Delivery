@@ -1,5 +1,5 @@
 <?php 
-  session_start();
+  
   include('hf-ft-front/header.php'); 
   
 ?>
@@ -36,10 +36,10 @@
     
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a href="<?php echo SITEURL;?>food-category.php" class="book-a-table-btn scrollto d-none d-lg-flex">Foods By Category</a></li>
-          <li><img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/64/000000/external-cart-marketing-flatart-icons-flat-flatarticons.png" width="40px"/></li>
+          <li><a class="nav-link scrollto" href="<?php echo SITEURL;?>food-category.php" class="book-a-table-btn scrollto d-none d-lg-flex">Foods By Category</a></li>
+          <li><a class="nav-link scrollto" href=""><img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/64/000000/external-cart-marketing-flatart-icons-flat-flatarticons.png" width="40px"/></a></li>
         </ul>
-        
+        <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
     </div>
   </header>
@@ -100,7 +100,7 @@
                       <div class="menu-ingredients">
                         <?php echo $description; ?>
                       </div>
-                      <a class='btn btn-primary displaybtn' href="addtocart.php?id=<?php echo $row2['id']; ?>"  ><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                      <a class='btn btn-primary displaybtn' href="cart.php?id=<?php echo $row2['id']; ?>"  ><i class="fa fa-shopping-cart"></i> Add to Cart</a>
                     </div>
 
                     <?php

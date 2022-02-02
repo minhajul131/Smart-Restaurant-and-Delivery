@@ -60,93 +60,93 @@
             <br>
 
             <table class="table-full">
-                    <tr>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Image</th>
-                        <th>Featured</th>
-                        <th>Active</th>
-                        <th>Actions</th>
-                    </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Image</th>
+                    <th>Featured</th>
+                    <th>Active</th>
+                    <th>Actions</th>
+                </tr>
 
-                    <?php 
+                <?php 
 
-                        //Query to Get all Categories from Database
-                        $sql = "SELECT * FROM table_category";
+                    //Query to Get all Categories from Database
+                    $sql = "SELECT * FROM table_category";
 
-                        //Execute Query
-                        $res = mysqli_query($conn, $sql);
+                    //Execute Query
+                    $res = mysqli_query($conn, $sql);
 
-                        //Count Rows
-                        $count = mysqli_num_rows($res);
+                    //Count Rows
+                    $count = mysqli_num_rows($res);
 
-                        //Check whether we have data in database or not
-                        if($count>0)
+                    //Check whether we have data in database or not
+                    if($count>0)
+                    {
+                        //We have data in database
+                        //get the data and display
+                        while($row=mysqli_fetch_assoc($res))
                         {
-                            //We have data in database
-                            //get the data and display
-                            while($row=mysqli_fetch_assoc($res))
-                            {
-                                $id = $row['id'];
-                                $title = $row['title'];
-                                $image_name = $row['image_name'];
-                                $featured = $row['featured'];
-                                $active = $row['active'];
+                            $id = $row['id'];
+                            $title = $row['title'];
+                            $image_name = $row['image_name'];
+                            $featured = $row['featured'];
+                            $active = $row['active'];
 
-                                ?>
-
-                                    <tr>
-                                        <td><?php echo $id; ?>. </td>
-                                        <td><?php echo $title; ?></td>
-
-                                        <td>
-
-                                            <?php  
-                                                //Chcek whether image name is available or not
-                                                if($image_name!="")
-                                                {
-                                                    //Display the Image
-                                                    ?>
-                                                    
-                                                    <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" width="100px" >
-                                                    
-                                                    <?php
-                                                }
-                                                else
-                                                {
-                                                    //DIsplay the MEssage
-                                                    echo "<div class='error'>Image not Added.</div>";
-                                                }
-                                            ?>
-
-                                        </td>
-
-                                        <td><?php echo $featured; ?></td>
-                                        <td><?php echo $active; ?></td>
-                                        <td>
-                                            <a href="<?php echo SITEURL; ?>admin/update-category.php?id=<?php echo $id; ?>" class="btn-update">Update Category</a>
-                                            <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-delete">Delete Category</a>
-                                        </td>
-                                    </tr>
-
-                                <?php
-
-                            }
-                        }
-                        else
-                        {
-                            //WE do not have data
-                            //We'll display the message inside table
                             ?>
 
                             <tr>
-                                <td colspan="6"><div class="error">No Category Added.</div></td>
+                                <td><?php echo $id; ?>. </td>
+                                <td><?php echo $title; ?></td>
+
+                                <td>
+
+                                    <?php  
+                                        //Chcek whether image name is available or not
+                                        if($image_name!="")
+                                        {
+                                            //Display the Image
+                                            ?>
+                                                    
+                                            <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" width="100px" >
+                                                    
+                                            <?php
+                                        }
+                                        else
+                                        {
+                                            //DIsplay the MEssage
+                                            echo "<div class='error'>Image not Added.</div>";
+                                        }
+                                        ?>
+
+                                </td>
+
+                                <td><?php echo $featured; ?></td>
+                                <td><?php echo $active; ?></td>
+                                <td>
+                                    <a href="<?php echo SITEURL; ?>admin/update-category.php?id=<?php echo $id; ?>" class="btn-update">Update Category</a>
+                                    <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-delete">Delete Category</a>
+                                </td>
                             </tr>
 
                             <?php
+
                         }
+                    }
+                    else
+                    {
+                        //WE do not have data
+                        //We'll display the message inside table
+                        ?>
+
+                        <tr>
+                            <td colspan="6"><div class="error">No Category Added.</div></td>
+                        </tr>
+
+                        <?php
+                    }
                     
-                    ?>
+                ?>
 
             </table>
 

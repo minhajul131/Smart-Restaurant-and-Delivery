@@ -1,7 +1,7 @@
 <?php 
     
     session_start();
-
+    
     //Create Constants to Store Non Repeating Values
     define('SITEURL', 'http://localhost/Smart-Restaurant-and-Delivery/');
     define('LOCALHOST', 'localhost');
