@@ -87,10 +87,11 @@
                   <div class="d-flex justify-content-between align-items-center mb-5 ">
                     <h1 class="fw-bold mb-0 text-white ">Your Cart</h1>
                   </div>
+                  <form action="cart.php" method="post" enctype="multipart/form-data"><!-- form start -->
                     <hr class="my-4">
                     <?php
-                    $sql4 = " SELECT ct.*,tf.* FROM cart ct,table_food tf WHERE ct.food_id=tf.id ";
-
+                    $sql4 = " SELECT ct.*,tf.* FROM cart ct,table_food tf WHERE ct.food_id=tf.id  and ct.ip_add='$ip_add' ";
+ 
                     $res4 = mysqli_query($conn, $sql4);
 
                     $count4 = mysqli_num_rows($res4);
@@ -121,8 +122,8 @@
                       </div>
                       <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                         
-
-                        <input type='text' name='quantity' data-food_id='<?php echo $food_id ?>' value='<?php echo $quantity ?>' class='form-control form-control-sm'>
+                      
+                        <input type='text' name='quantity' data-food_id1='<?php echo $food_id ?>' value='<?php echo $quantity ?>' class='quantity form-control form-control-sm'>
                           
 
                          
@@ -141,6 +142,7 @@
                 }
                 
               ?>
+              </form><!-- form end -->
                     <hr class="my-4">
 
                     <div class="pt-5">
@@ -196,16 +198,16 @@
     </div>
   </section>
 <!-- end cart -->
-
-
-<?php include('hf-ft-front/footer.php'); ?>
 <script src="js/jquery-331.min.js"></script>
     <script src="js/bootstrap-337.min.js"></script>
     <script>
         $(document).ready(function(data){
+         
             $(document).on('keyup','.quantity',function(){
-                var id =$(this).data("food_id");
+              
+                var id =$(this).data("food_id1");
                 var quantity=$(this).val();
+                 
                 if(quantity !='')
                 {
                     $.ajax({
@@ -213,8 +215,9 @@
                         method: "POST",
                         data: {id:id, quantity:quantity},
                         success:function(){
-                            $("body").load("cart_body.php");
-
+ 
+                            //$("body").load("cart_body.php");
+                            location.reload();
                         }
 
                     });
@@ -223,3 +226,5 @@
             });
         });
     </script>
+
+<?php include('hf-ft-front/footer.php'); ?>
