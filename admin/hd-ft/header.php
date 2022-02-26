@@ -32,7 +32,8 @@
                 <li><a href="control-chef.php">Chef</a></li>
                 <li><a href="control-category.php">Category</a></li>
                 <li><a href="control-food.php">Food</a></li>
-                <li><a href="control-order.php">Order</a></li>
+                <li><a href="order-delivery.php">Delivery</a></li>
+                <li><a href="order-table.php">Table</a></li>
                 <li><a href="signout.php">Sign Out</a></li>
                     
             </ul>

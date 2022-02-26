@@ -15,7 +15,8 @@
 
     $count = mysqli_num_rows($res);
     if($count>0){
-      echo "already added";   
+      //echo "already added";
+      echo"<script>alert('Already added' )</script>";   
     }
     else{
       $sql2 = " SELECT * FROM table_food WHERE id='$food_id'  ";
@@ -168,11 +169,10 @@
                     <h5>TK <?php echo $total?></h5>
                   </div>
 
-                  <button type="button" class="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">Check Out</button>
-
+                  <a href="<?php echo SITEURL;?>checkout.php" name="submit" class="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">Check Out</a>
                 </div>
               </div>
-
+                
             </div>
           </div>
         </div>

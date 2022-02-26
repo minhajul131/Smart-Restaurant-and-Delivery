@@ -72,17 +72,21 @@
         //3. Execute the Query
         $res = mysqli_query($conn, $sql);
 
+
         //4. Count rows to check whether the user exists or not
         $count = mysqli_num_rows($res);
+        while($row = mysqli_fetch_assoc($res)){
+            $user_id = $row['user_id'];
+        }
 
         if($count==1)
         {
             //User Available and Login Success
             $_SESSION['login'] = "<div class='success'>Login Successful.</div>";
             $_SESSION['user'] = $username; //TO check whether the user is logged in or not and logout will unset it
-
+            $_SESSION['user_id'] = $user_id;
             //Redirect to HOme Page/Dashboard
-            header('location:'.SITEURL.'food-category.php');
+            header('location:'.SITEURL.'checkout.php');
         }
         else
         {

@@ -43,7 +43,7 @@
 
 <table class="table-full">
     <tr>
-        <th>S.N.</th>
+        <th>Food_ID</th>
         <th>Title</th>
         <th>Price</th>
         <th>Image</th>
@@ -81,7 +81,7 @@
                 $active = $row['active'];
                 ?>
                 <tr>
-                    <td><?php echo $sn++; ?>. </td>
+                    <td><?php echo $id; ?></td>
                     <td><?php echo $title; ?></td>
                     <td>$<?php echo $price; ?></td>
                     <td>
