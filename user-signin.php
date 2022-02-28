@@ -21,7 +21,7 @@
         <div class="container py-5 h-100">
             <div class="row d-flex align-items-center justify-content-center h-100">
                 <div class="col-md-8 col-lg-7 col-xl-6">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image">
+                    <img src="images/draw2.svg" class="img-fluid" alt="Phone image">
                 </div>
                 <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                     
@@ -68,20 +68,21 @@
             $res = mysqli_query($conn, $sql);
             $get_ip = getRealIpUser();
             $check_customer = mysqli_num_rows($res);
+
             $select_cart="SELECT * FROM cart WHERE ip_add='$get_ip'";
             $run_cart =mysqli_query($conn, $select_cart);
             $check_cart = mysqli_num_rows($run_cart);
             if($check_customer==0){
-                echo "<script>alart('error')</script>";
+                echo "<script>alert('error')</script>";
                 exit();
             }
             if($check_customer==1 AND $check_cart==0){
                 $_SESSION['username'] = $username;
-                echo "<script>alart('logged In')</script>";
+                echo "<script>alert('logged In')</script>";
                 echo "<script>window.open('home.php')</script>";
             }else{
                 $_SESSION['username'] = $username;
-                echo "<script>alart('logged In')</script>";
+                echo "<script>alert('logged In okk')</script>";
                 echo "<script>window.open('checkout.php')</script>";
             }
 
@@ -93,28 +94,3 @@
 
   
 <?php include('hf-ft-front/footer.php') ?>
-
-/*
-        //4. Count rows to check whether the user exists or not
-        $count = mysqli_num_rows($res);
-        while($row = mysqli_fetch_assoc($res)){
-            $user_id = $row['user_id'];
-        }
-
-        if($count==1)
-        {
-            //User Available and Login Success
-            $_SESSION['login'] = "<div class='success'>Login Successful.</div>";
-            $_SESSION['user'] = $username; //TO check whether the user is logged in or not and logout will unset it
-            $_SESSION['user_id'] = $user_id;
-            //Redirect to HOme Page/Dashboard
-            header('location:'.SITEURL.'checkout.php');
-        }
-        else
-        {
-            //User not Available and Login FAil
-            $_SESSION['login'] = "<div class='error text-center'>Username or Password did not match.</div>";
-            //Redirect to HOme Page/Dashboard
-            header('location:'.SITEURL.'user-signin.php');
-        }
-        */

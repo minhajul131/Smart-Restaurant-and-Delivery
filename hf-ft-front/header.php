@@ -41,7 +41,25 @@
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-phone d-flex align-items-center"><span>+8801000000000</span></i>
         <i class="bi bi-clock d-flex align-items-center ms-4"><span> Sat-Thu: 10AM - 08PM</span></i>
+        <i class="bi d-flex align-items-center ms-4"><span> <a href="my_account.php"  >
+                   <?php
+                   if(isset($_SESSION['username']))
+                   {
+                        echo "Welcome : ".$_SESSION['username']."";
+                        echo "  <a href='../my_account.php'>"; 
+                        echo "  </a>";
+                   }
+                   else 
+                   {
+                    echo "Welcome : Guest ";
+                    echo "  <a href='../checkout.php'>"; 
+                    echo "  </a>";
+                   }
+                   ?>
+               </a></span></i>
+
       </div>
     </div>
   </div>
   <!--top bar -->
+  

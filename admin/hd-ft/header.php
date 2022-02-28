@@ -34,6 +34,7 @@
                 <li><a href="control-food.php">Food</a></li>
                 <li><a href="order-delivery.php">Delivery</a></li>
                 <li><a href="order-table.php">Table</a></li>
+                <li><a href="restaurant_info.php">Info</a></li>
                 <li><a href="signout.php">Sign Out</a></li>
                     
             </ul>

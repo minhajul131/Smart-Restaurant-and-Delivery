@@ -107,7 +107,7 @@
                           $image_name = $row4['image_name'];
                           $title = $row4['title'];
                           $item_price=$quantity*$price;
-                          $total+=$price;
+                          $total+=$item_price;
                           ?>
                       
                             <div class="row mb-4 d-flex justify-content-between align-items-center">
@@ -154,14 +154,18 @@
                     $total+=50;?>
                     </h5>  
                   </div>
+                  <form action="" method= "post">
 
-                  <h5 class="text-uppercase mb-3">Delivery Charge</h5>
+                    <h5 class="text-uppercase mb-3">Delivery Option</h5>
 
-                  <div class="mb-4 pb-2">
-                    <select class="select">
-                      <option value="1">Standard-Delivery- Tk 50</option>  
-                    </select>
-                  </div>
+                    <div class="mb-4 pb-2">
+                      <select class="select" name="options">
+                        <option>Table</option>
+                        <option>Delivery</option>    
+                      </select>
+                    </div>
+                  </form>
+                  
                   <hr class="my-4">
 
                   <div class="d-flex justify-content-between mb-5">

@@ -1,4 +1,4 @@
-<?php include('hf-ft-front/header.php'); ?>
+<?php include('hf-ft-front/header.php');?>
 
 <?php
     if(!isset($_SESSION['username']))
@@ -13,4 +13,4 @@
 ?>
 
 
-<?php include('hf-ft-front/footer.php'); ?>
+<?php include('hf-ft-front/footer.php');?>

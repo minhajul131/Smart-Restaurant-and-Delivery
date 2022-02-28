@@ -10,20 +10,26 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="home.php">Home</a></li>
-          <li><a class="nav-link scrollto" href="user-signin.php">Sign In</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
           <li><a class="nav-link scrollto" href="#specials">Specials</a></li>
           <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
-          <li class="dropdown"><a href="#"><span>Order</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#book-a-table">Book A table</a></li>
-              <li><a href="#">Delivery</a></li>
-            </ul>
-          </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li>
+            <a class="nav-link scrollto" href="#">
+              <?php                 
+                if(isset($_SESSION['username']))
+                {
+                  echo "<a href='user-signout.php'>Sign Out</a>";
+                }
+                else
+                {
+                  echo "<a href='user-signin.php'>Signin</a>";
+                }
+              ?>
+            </a>
+          </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -43,10 +49,6 @@
             <a href="#book-a-table" class="btn-book animated fadeInUp scrollto">Book a Table</a>
           </div>
         </div>
-        <div class="col-lg-4 d-flex align-items-center justify-content-center position-relative" data-aos="zoom-in" data-aos-delay="200">
-          <a href="https://www.youtube.com/watch?v=u6BOC7CDUTQ" class="glightbox play-btn"></a>
-        </div>
-
       </div>
     </div>
   </section><!-- End Hero -->
@@ -176,7 +178,7 @@
                   ?>
                   
                   <div class="menu-content">
-                    <a href="#"><?php echo $title; ?></a><span>$<?php echo $price; ?></span>
+                    <a href="#"><?php echo $title; ?></a><span>TK <?php echo $price; ?></span>
                   </div>
                   <div class="menu-ingredients">
                     <?php echo $description; ?>
@@ -593,56 +595,88 @@
       <div class="container" data-aos="fade-up">
 
         <div class="row mt-5">
+        <?php 
+
+          //Query to Get all Categories from Database
+          $sql = "SELECT * FROM restaurant_info";
+
+          //Execute Query
+          $res = mysqli_query($conn, $sql);
+
+          //Count Rows
+          $count = mysqli_num_rows($res);
+
+          //Check whether we have data in database or not
+          if($count>0)
+          {
+              //We have data in database
+              //get the data and display
+              while($row=mysqli_fetch_assoc($res))
+              {
+                  $id = $row['id'];
+                  $location = $row['location'];
+                  $open_hours = $row['open_hours'];
+                  $email = $row['email'];
+                  $contact = $row['contact'];
+
+                  ?>
 
           <div class="col-lg-4">
             <div class="info">
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p><?php echo $location; ?></p>
               </div>
 
               <div class="open-hours">
                 <i class="bi bi-clock"></i>
                 <h4>Open Hours:</h4>
                 <p>
-                  Monday-Saturday:<br>
-                  11:00 AM - 2300 PM
+                <?php echo $open_hours; ?>
                 </p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p><?php echo $email; ?></p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <p><?php echo $contact; ?></p>
               </div>
 
             </div>
 
           </div>
+          <?php
+
+          }
+          }
+          else
+          {
+          }                    
+        ?>
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  <input type="text" name="c_name" class="form-control" id="name" placeholder="Your Name" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  <input type="email" class="form-control" name="c_email" id="email" placeholder="Your Email" required>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                <input type="text" class="form-control" name="c_subject" id="subject" placeholder="Subject" required>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="8" placeholder="Message" required></textarea>
+                <textarea class="form-control" name="c_message" rows="8" placeholder="Message" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
@@ -661,4 +695,4 @@
 
   </main><!-- End #main -->
 
-  <?php include('hf-ft-front/footer.php'); ?>
+<?php include('hf-ft-front/footer.php'); ?>
