@@ -21,7 +21,7 @@
                 <?php 
 
                     //Query to Get all Categories from Database
-                    $sql = "SELECT * FROM order_delivery";
+                    $sql = "SELECT * FROM order_delivery ORDER BY order_id DESC";
 
                     //Execute Query
                     $res = mysqli_query($conn, $sql);
@@ -47,17 +47,32 @@
                             ?>
 
                             <tr>
-                                <td><?php echo $order_id; ?>. </td>
+                                <td><?php echo $order_id; ?></td>
                                 <td><?php echo $user_id; ?></td>
-                                <td><?php echo $address; ?>. </td>
-                                <td><?php echo $food_id; ?>. </td>
-                                <td><?php echo $food_quantity; ?>. </td>
-                                <td><?php echo $total_price; ?>. </td>
-                                <td><?php echo $order_time; ?>. </td>
-                                <td><?php echo $order_status; ?>. </td>
+                                <td><?php echo $address; ?></td>
+                                <td><?php echo $food_id; ?></td>
+                                <td><?php echo $food_quantity; ?></td>
+                                <td><?php echo $total_price; ?></td>
+                                <td><?php echo $order_time; ?></td>
+                                <td>
+                                    <?php 
+                                        if($order_status=="ordered"){
+                                            echo "<label>$order_status</label>";
+                                        }
+                                        elseif($order_status=="pending"){
+                                            echo "<label style='color: orange'>$order_status</label>";
+                                        }
+                                        elseif($order_status=="processing"){
+                                            echo "<label style='color: blue'>$order_status</label>";
+                                        }
+                                        elseif($order_status=="delivered"){
+                                            echo "<label style='color: green'>$order_status</label>";
+                                        } 
+                                    ?>
+                                </td>
                                 <td>
                                     
-                                    <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-delete">Delete Category</a>
+                                    <a href="<?php echo SITEURL; ?>admin/order_delivery_update.php?order_id=<?php echo $order_id; ?>" class="btn-delete">Update Status</a>
                                 </td>
                             </tr>
                                 <?php

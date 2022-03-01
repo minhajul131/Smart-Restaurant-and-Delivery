@@ -9,7 +9,7 @@
         $customar_id = $_GET['c_id'];
     }
     $ip_add=getRealIpUser();
-    $status="pending";
+    $status="ordered";
     $select_cart= "SELECT * FROM cart WHERE ip_add = '$ip_add'";
     $run_cart= mysqli_query($conn,$select_cart);
     while($row_cart=mysqli_fetch_array($run_cart)){

@@ -128,10 +128,11 @@
                               <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                                 <h6 class="mb-0">TK: <?php echo $item_price; ?></h6>
                               </div>
-                              <hr class="my-4">
-                              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                              <div class="col-md-3 col-lg-2 col-xl-1 offset-lg-1">
+                                <h5><a href="<?php echo SITEURL; ?>cart_delete.php?food_id=<?php echo $food_id; ?>&ip_add=<?php echo $ip_add; ?>" class="text-danger">X</a></h5>
                               </div>
+                              
+                              <hr class="my-4">
                             </div>
                           <?php
                         }

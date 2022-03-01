@@ -37,10 +37,46 @@
   <!-- ======= Top Bar ======= -->
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-center justify-content-md-between">
+    <?php 
+
+      //Query to Get all Categories from Database
+      $sql = "SELECT * FROM restaurant_info";
+
+      //Execute Query
+      $res = mysqli_query($conn, $sql);
+
+      //Count Rows
+      $count = mysqli_num_rows($res);
+
+      //Check whether we have data in database or not
+      if($count>0)
+      {
+          //We have data in database
+          //get the data and display
+          while($row=mysqli_fetch_assoc($res))
+          {
+              $id = $row['id'];
+              
+              $open_hours = $row['open_hours'];
+              
+              $contact = $row['contact'];
+
+              ?>
+              
 
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-phone d-flex align-items-center"><span>+8801000000000</span></i>
-        <i class="bi bi-clock d-flex align-items-center ms-4"><span> Sat-Thu: 10AM - 08PM</span></i>
+        <i class="bi bi-phone d-flex align-items-center"><span><?php echo $contact; ?></span></i>
+        <i class="bi bi-clock d-flex align-items-center ms-4"><span><?php echo $open_hours; ?></span></i>
+        <?php
+
+                        }
+                    }
+                    else
+                    {
+                      
+                    }
+                    
+                ?>
         <i class="bi d-flex align-items-center ms-4"><span> <a href="my_account.php"  >
                    <?php
                    if(isset($_SESSION['username']))

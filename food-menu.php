@@ -98,9 +98,10 @@
                         <a href="#"><?php echo $title; ?></a><span>TK:<?php echo $price; ?></span>
                       </div>
                       <div class="menu-ingredients">
-                        <?php echo $description; ?>
+                        <?php echo $description; ?> <br>
+                        <a class='btn btn-primary displaybtn' href="cart.php?id=<?php echo $row2['id']; ?>"  ><i class="fa fa-shopping-cart"></i> Add to Cart</a>
                       </div>
-                      <a class='btn btn-primary displaybtn' href="cart.php?id=<?php echo $row2['id']; ?>"  ><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                      
                     </div>
 
                     <?php
