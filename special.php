@@ -39,38 +39,36 @@
             <div class="col-lg-9 mt-4 mt-lg-0">
                 <div class="tab-content">
                     <div class="tab-pane active show" id="tab-1">
-                        <div class="row">
-                            <div class="col-lg-8 details order-2 order-lg-1">
-                                <p class="fst-italic"><?php echo $description; ?></p>
-                            </div>
-                            <?php
-                  
-                            //check image
-                            if($image_name==""){
-                              echo "not available";
-                            }
-                            else{
-                              //available
-                              ?>
-                            <div class="col-lg-4 text-center order-1 order-lg-2">
-                                <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name ?>" class="img-fluid"
-                                    alt="">
-                            </div>
-                            <?php
-                            }
-                          ?>
-
+                      <div class="row">
+                        <div class="col-lg-8 details order-2 order-lg-1">
+                          <p class="fst-italic"><?php echo $description; ?></p>
                         </div>
+                        <?php
+                  
+                          //check image
+                          if($image_name==""){
+                            echo "not available";
+                          }
+                          else{
+                            //available
+                            ?>
+                            <div class="col-lg-4 text-center order-1 order-lg-2">
+                              <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name ?>" class="img-fluid"
+                                alt="">
+                            </div>
+                            <?php
+                          }
+                        ?>
+                          
+
+                      </div>
+                        
                     </div>
+                    
                 </div>
+                
             </div>
-
-
-
-
-
-
-
+            
 
             <?php
                 
@@ -81,9 +79,18 @@
             }
           ?>
 
+
+
+
+
+
+            
+
         </div>
+        
 
     </div>
+    
 </section><!-- End Menu Section -->
 
 <?php include('hf-ft-front/footer.php'); ?>

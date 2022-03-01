@@ -60,11 +60,60 @@
       <div class="container" data-aos="fade-up">
 
         <div class="row">
+        <?php 
+
+          //Query to Get all Categories from Database
+          $sql = "SELECT * FROM rt_image WHERE active ='Yes'";
+
+          //Execute Query
+          $res = mysqli_query($conn, $sql);
+
+          //Count Rows
+          $count = mysqli_num_rows($res);
+
+          //Check whether we have data in database or not
+          if($count>0)
+          {
+              //We have data in database
+              //get the data and display
+              while($row=mysqli_fetch_assoc($res))
+              {
+                  
+                  $image_name = $row['image_name'];
+                  $active = $row['active'];
+
+                   
+                                        //Chcek whether image name is available or not
+                                        if($image_name!="")
+                                        {
+                                            //Display the Image
+                                            ?>
           <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
             <div class="about-img">
-              <img src="assets/img/about.jpg" alt="">
+              <img src="<?php echo SITEURL; ?>images/rt_img/<?php echo $image_name; ?>" alt="">
             </div>
           </div>
+          <?php
+                                        }
+                                        else
+                                        {
+                                            //DIsplay the MEssage
+                                            echo "<div class='error'>Image not Added.</div>";
+                                        }
+                                        
+
+                        }
+                    }
+                    else
+                    {
+                        //WE do not have data
+                        //We'll display the message inside table
+                        
+                    }
+                    
+                ?>
+
+
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
             <h3>Smart Restaurant & Delivery</h3>
             <p class="fst-italic">
@@ -94,30 +143,57 @@
         </div>
 
         <div class="row">
+        <?php 
+
+          //Query to Get all Categories from Database
+          $sql = "SELECT * FROM why_us";
+
+          //Execute Query
+          $res = mysqli_query($conn, $sql);
+
+          //Count Rows
+          $count = mysqli_num_rows($res);
+
+          //Check whether we have data in database or not
+          if($count>0)
+          {
+              //We have data in database
+              //get the data and display
+              while($row=mysqli_fetch_assoc($res))
+              {
+                  $id = $row['id'];
+                  
+                  $why_title = $row['why_title'];
+                  $why_description = $row['why_description'];
+                  
+
+                  ?>
 
           <div class="col-lg-4">
             <div class="box" data-aos="zoom-in" data-aos-delay="100">
-              <span>01</span>
-              <h4>Lorem Ipsum</h4>
-              <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
+              <span><?php echo $id; ?></span>
+              <h4><?php echo $why_title; ?></h4>
+              <p><?php echo $why_description; ?></p>
             </div>
           </div>
+          <?php
 
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="200">
-              <span>02</span>
-              <h4>Repellat Nihil</h4>
-              <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
-            </div>
-          </div>
+                        }
+                    }
+                    else
+                    {
+                        //WE do not have data
+                        //We'll display the message inside table
+                        ?>
 
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="300">
-              <span>03</span>
-              <h4> Ad ad velit qui</h4>
-              <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
-            </div>
-          </div>
+                        
+
+                        <?php
+                    }
+                    
+                ?>
+
+          
 
         </div>
 
@@ -137,7 +213,7 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="menu-flters">
               
-              <a class='filter-active' href="food-category.php">Explore All Food</a>
+              <a class='filter-active' href="food-category.php"> ---- >>>> Explore All Food <<<< ---- </a>
               
             </ul>
           </div>
@@ -447,74 +523,80 @@
       <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row g-0">
+        <?php 
 
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-1.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
+          //Query to Get all Categories from Database
+          $sql = "SELECT * FROM rt_image";
 
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-2.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
+          //Execute Query
+          $res = mysqli_query($conn, $sql);
 
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-3.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
+          //Count Rows
+          $count = mysqli_num_rows($res);
 
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-4.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
+          //Check whether we have data in database or not
+          if($count>0)
+          {
+              //We have data in database
+              //get the data and display
+              while($row=mysqli_fetch_assoc($res))
+              {
+                  
+                  $image_name = $row['image_name'];
+                  
 
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-5.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
+                  ?>
 
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-6.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
+                  <tr>
+                      
 
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-7.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
+                      <td>
 
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-8.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
+                          <?php  
+                              //Chcek whether image name is available or not
+                              if($image_name!="")
+                              {
+                                  //Display the Image
+                                  ?>
+
+                    <div class="col-lg-3 col-md-4">
+                      <div class="gallery-item">
+                        <a href="<?php echo SITEURL; ?>images/rt_img/<?php echo $image_name; ?>" class="gallery-lightbox" data-gall="gallery-item">
+                          <img src="<?php echo SITEURL; ?>images/rt_img/<?php echo $image_name; ?>" alt="" class="img-fluid" >
+                        </a>
+                      </div>
+                    </div>
+                    <?php
+                                                  }
+                                                  else
+                                                  {
+                                                      //DIsplay the MEssage
+                                                      echo "<div class='error'>Image not Added.</div>";
+                                                  }
+                                                  ?>
+                                                  <?php
+
+          }
+          }
+          else
+          {
+          //WE do not have data
+          //We'll display the message inside table
+          ?>
+
+
+
+          <?php
+          }
+
+        ?>
+
+          
 
         </div>
 
       </div>
+      
     </section><!-- End Gallery Section -->
 
     <!-- ======= Chefs Section ======= -->
@@ -581,7 +663,8 @@
         </div>
       </div>
     </section><!-- End Chefs Section -->
-
+    <!-- ======= Gallery Section ======= -->
+    
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
@@ -661,30 +744,66 @@
           }                    
         ?>
 
-          <div class="col-lg-8 mt-5 mt-lg-0">
+        <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="c_name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="c_email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="c_subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="c_message" rows="8" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
+        <form action="" method="POST" class="php-email-form">
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <input type="text" name="c_name" class="form-control" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="col-md-6 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="c_email" id="email" placeholder="Your Email" required>
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" name="c_subject" id="subject" placeholder="Subject" required>
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="c_message" rows="8" placeholder="Message" required></textarea>
+          </div>
+                        
+          <div class="text-center"><button type="submit" name="submit">Send Message</button></div>
+        </form>
+
+        <?php 
+        
+            //CHeck whether the Submit Button is Clicked or Not
+            if(isset($_POST['submit']))
+            {
+                //echo "Clicked";
+
+                //1. Get the Value from CAtegory Form
+                $c_name = $_POST['c_name'];
+                $c_email = $_POST['c_email'];
+                $c_subject = $_POST['c_subject'];
+                $c_message = $_POST['c_message'];
+                
+
+                $sql = "INSERT INTO testimonials SET 
+                    c_name='$c_name',
+                    c_email='$c_email',
+                    c_subject='$c_subject',
+                    c_message='$c_message'
+                ";
+
+                $res = mysqli_query($conn, $sql);
+                //4. Check whether the query executed or not and data added or not
+                if($res==true)
+                {
+                    //Query Executed and Category Added
+                    $_SESSION['add'] = "<div class='success'>Added Successfully.</div>";
+                    //Redirect to Manage Category Page
+                    header('location:'.SITEURL.'home.php');
+                }
+                else
+                {
+                    //Failed to Add CAtegory
+                    $_SESSION['add'] = "<div class='error'>Failed to Add.</div>";
+                    //Redirect to Manage Category Page
+                    header('location:'.SITEURL.'home.php');
+                }
+            }
+        ?>
 
           </div>
 
