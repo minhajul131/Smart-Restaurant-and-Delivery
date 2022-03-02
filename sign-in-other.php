@@ -1,20 +1,6 @@
-<?php include('hf-ft-front/header.php');
+<?php  
     include("functions.php");
 ?>
-
-<!-- Header -->
-<header id="header" class="fixed-top d-flex align-items-cente">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
-
-      <h1 class="logo me-auto me-lg-0"><a href="home.php">Restaurant</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-      <a href="<?php echo SITEURL;?>user-signup.php" class="book-a-table-btn scrollto d-none d-lg-flex">Create New Account</a>
-    </div>
-</header>
-  <!-- End Header -->
-
 <main id="main">
     
     <section class="vh-100">
@@ -91,6 +77,3 @@
     ?>
 
 </main>
-
-  
-<?php include('hf-ft-front/footer.php') ?>

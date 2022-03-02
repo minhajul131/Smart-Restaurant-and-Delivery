@@ -5,9 +5,16 @@
 ?>
 
 <?php
-    if(isset($_GET['c_id'])){
-        $customar_id = $_GET['c_id'];
-    }
+$session_user=$_SESSION['username'];
+$select_customar = "SELECT * FROM user_signup WHERE username = '$session_user'";
+$run_cust = mysqli_query($conn,$select_customar);
+$row_customar = mysqli_fetch_array($run_cust);
+$customar_id = $row_customar['user_id'];
+?>
+<?php
+  
+        $customar_location = $_SESSION['d_address'];
+  
     $ip_add=getRealIpUser();
     $status="ordered";
     $select_cart= "SELECT * FROM cart WHERE ip_add = '$ip_add'";
@@ -22,9 +29,18 @@
         while($row_pro= mysqli_fetch_array($run_pro)){
             $pri = $row_pro['price'];
             $sub_total=$pri*$qty;
-            $insert_customar_order= "INSERT INTO `order_delivery`(`user_id`, `food_id`, `food_quantity`, `total_price`, `order_time`, `order_status`) 
-            VALUES ('$customar_id','$fd_id','$qty','$sub_total',NOW(),'$status')";
+            if(is_numeric($customar_location) )
+            {
+                  $insert_customar_order= "INSERT INTO `order_table`(`user_id`,`table_no`, `food_id`, `food_quantity`, `total_price`, `order_time`, `order_status`) 
+                VALUES ('$customar_id','$customar_location','$fd_id','$qty','$sub_total',NOW(),'$status')";
+                $run_cus_order=mysqli_query($conn,$insert_customar_order);
+            }else
+            {
+               $insert_customar_order= "INSERT INTO `order_delivery`(`user_id`,`address`, `food_id`, `food_quantity`, `total_price`, `order_time`, `order_status`) 
+            VALUES ('$customar_id','$customar_location','$fd_id','$qty','$sub_total',NOW(),'$status')";
             $run_cus_order=mysqli_query($conn,$insert_customar_order);
+            }
+           
             
             $delete_cart="DELETE FROM cart WHERE ip_add='$ip_add'";
             $run_del=mysqli_query($conn,$delete_cart);

@@ -7,7 +7,7 @@
     echo $_GET['id']; 
     
     $ip_add=getRealIpUser();
-    echo $ip_add;
+    //echo $ip_add;
   
     $sql = " SELECT * FROM cart WHERE ip_add= '$ip_add' AND food_id='$food_id' ";
 
@@ -90,12 +90,13 @@
                   <form action="cart.php" method="post" enctype="multipart/form-data"><!-- form start -->
                     <hr class="my-4">
                     <?php
+                    $ip_add=getRealIpUser();
                       $sql4 = " SELECT ct.*,tf.* FROM cart ct,table_food tf WHERE ct.food_id=tf.id  and ct.ip_add='$ip_add' ";
   
                       $res4 = mysqli_query($conn, $sql4);
 
                       $count4 = mysqli_num_rows($res4);
-
+                      $total=0;
                       if($count4>0){
                         //food available
                         $total=0;
@@ -152,7 +153,7 @@
                     <h5 class="text-uppercase">items <?php echo $count4; ?></h5>
                       
                     <h5>TK <?php echo $total;
-                    $total+=50;?>
+                    ?>
                     </h5>  
                   </div>
                   <form action="" method= "post">

@@ -17,18 +17,18 @@
           <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li>
-            <a class="nav-link scrollto" href="#">
-              <?php                 
+           <?php  
+                              
                 if(isset($_SESSION['username']))
                 {
-                  echo "<a href='user-signout.php'>Sign Out</a>";
+                  echo "<a class='nav-link scrollto' href='user-signout.php'>Sign Out</a>";
                 }
                 else
                 {
-                  echo "<a href='user-signin.php'>Signin</a>";
+                  echo  "<a class='nav-link scrollto'  href='user-signin.php'>Signin</a>";
                 }
               ?>
-            </a>
+          
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
