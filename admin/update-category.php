@@ -182,7 +182,7 @@
                             {
                                 //Failed to remove image
                                 $_SESSION['failed-remove'] = "<div class='error'>Failed to remove current Image.</div>";
-                                header('location:'.SITEURL.'admin/manage-category.php');
+                                header('location:'.SITEURL.'admin/control-category.php');
                                 die();//Stop the Process
                             }
                         }

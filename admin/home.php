@@ -71,9 +71,15 @@
                         $res3 = mysqli_query($conn, $sql3);
                         //Count Rows
                         $count3 = mysqli_num_rows($res3);
+
+                        $sql7 = "SELECT * FROM order_table";
+                        //Execute Query
+                        $res7 = mysqli_query($conn, $sql7);
+                        //Count Rows
+                        $count7 = mysqli_num_rows($res7);
                     ?>
 
-                    <h1><?php echo $count3; ?></h1>
+                    <h1><?php echo $count3+$count7; ?></h1>
                     <br />
                     Total Orders
                 </div>
@@ -83,7 +89,7 @@
                     <?php 
                         //Creat SQL Query to Get Total Revenue Generated
                         //Aggregate Function in SQL
-                        $sql4 = "SELECT SUM(total_price) AS Total FROM order_delivery WHERE order_status='delivered'";
+                        $sql4 = "SELECT SUM(total_price) AS Total FROM order_delivery WHERE order_status='delivered' ";
 
                         //Execute the Query
                         $res4 = mysqli_query($conn, $sql4);
@@ -92,11 +98,22 @@
                         $row4 = mysqli_fetch_assoc($res4);
                         
                         //GEt the Total REvenue
-                        $total_revenue = $row4['Total'];
+                        $total_revenue1 = $row4['Total'];
+
+                        $sql6 = "SELECT SUM(total_price) AS Total FROM order_table WHERE order_status='delivered' ";
+
+                        //Execute the Query
+                        $res6 = mysqli_query($conn, $sql6);
+
+                        //Get the VAlue
+                        $row6 = mysqli_fetch_assoc($res6);
+                        
+                        //GEt the Total REvenue
+                        $total_revenue2 = $row6['Total'];
 
                     ?>
 
-                    <h1>TK <?php echo $total_revenue; ?></h1>
+                    <h1>TK <?php echo $total_revenue1+$total_revenue2; ?></h1>
                     <br />
                     Revenue Generated
                 </div>

@@ -1,26 +1,13 @@
-<?php include('hf-ft-front/header.php'); ?>
+<?php include('hd-ft/header.php'); ?>
+
+<div class="manage">
+    <div class="wrapper">
+        <h1>Update Chef Detail</h1>
+
+        <br><br>
 
 
-<main id="main">
-
-  <section>
-    <div class="container">
-      <div class="section-title">
-        <p>Update Your Details</p>
-      </div>
-      <?php
-                if(isset($_SESSION['update']))
-                {
-                    echo $_SESSION['update'];
-                    unset($_SESSION['update']);
-                }
-            
-            ?>
-
-      <div class="row mt-5">
-        <div class="offset-md-3 col-lg-12 mt-5 mt-lg-0">
-          <!-- edit -->
-          <?php 
+        <?php 
         
             //Check whether the id is set or not
             if(isset($_GET['id']))
@@ -29,7 +16,7 @@
                 //echo "Getting the Data";
                 $id = $_GET['id'];
                 //Create SQL Query to get all other details
-                $sql = "SELECT * FROM user_signup WHERE user_id=$id";
+                $sql = "SELECT * FROM table_chef WHERE id=$id";
 
                 //Execute the Query
                 $res = mysqli_query($conn, $sql);
@@ -42,81 +29,99 @@
                     //Get all the data
                     $row = mysqli_fetch_assoc($res);
                     $full_name = $row['full_name'];
-                    $contact_number = $row['contact_number'];
                     $current_image = $row['image_name'];
+                    $contact_number = $row['contact_number'];
+                    $position = $row['position'];
                 }
                 else
                 {
                     //redirect to manage category with session message
-                    $_SESSION['no-category-found'] = "<div class='error'>Not Found.</div>";
-                    header('location:'.SITEURL.'user-account.php');
+                    $_SESSION['no-category-found'] = "<div class='error'>Category not Found.</div>";
+                    header('location:'.SITEURL.'admin/control-chef.php');
                 }
 
             }
             else
             {
                 //redirect to Manage CAtegory
-                header('location:'.SITEURL.'user-account.php');
+                header('location:'.SITEURL.'admin/control-chef.php');
             }
         
         ?>
-                      
-          <form action="" method="POST" enctype="multipart/form-data">
 
-            <div class=" form-group mt-3">
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                <label class="form-label" for="form1Example13">Your Name</label>
-                <input type="text" class="form-control" value="<?php echo $full_name; ?>" name="full_name" placeholder="Your Full Name" >
-              </div>
-              <br>        
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                <label class="form-label" for="form1Example13">Your Contact Number</label>
-                <input type="text" class="form-control" value="<?php echo $contact_number; ?>" name="contact_number" placeholder="Your contact number">
-                </div>
-              <br>
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                <label class="form-label" for="form1Example13">Your Current Image</label>
-                <?php 
-                        if($current_image == "")
-                        {
-                            //Image not Available 
-                            echo "<div class='error'>Image not Available.</div>";
-                        }
-                        else
-                        {
-                            //Image Available
-                            ?>
-                            <img src="<?php echo SITEURL; ?>images/user/<?php echo $current_image; ?>" width="150px">
+        <form action="" method="POST" enctype="multipart/form-data">
+
+            <table class="table-30">
+                <tr>
+                    <td>Full Name: </td>
+                    <td>
+                        <input type="text" name="full_name" value="<?php echo $full_name; ?>">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Current Image: </td>
+                    <td>
+                        <?php 
+                            if($current_image != "")
+                            {
+                                //Display the Image
+                                ?>
+                                <img src="<?php echo SITEURL; ?>images/chef/<?php echo $current_image; ?>" width="150px">
+                                <?php
+                            }
+                            else
+                            {
+                                //Display Message
+                                echo "<div class='error'>Image Not Added.</div>";
+                            }
+                        ?>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>New Image: </td>
+                    <td>
+                        <input type="file" name="image">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Contact Number: </td>
+                    <td>
+                        <input type="text" name="contact_number" value="<?php echo $contact_number; ?>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>position: </td>
+                    <td>
+                        <input type="text" name="position" value="<?php echo $position; ?>">
+                    </td>
+                </tr>
                 
-                <?php
-                        }
-                    ?>
-              </div>
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                <label class="form-label" for="form1Example13">New Image</label>
-                <input type="file" class="form-control" name="image">
-              </div>
-              <br>
-              <div>
-              
-                <button type="submit" class="btn btn-primary btn-lg btn-block col-md-6" name="submit">Update Account</button>
-              </div>
-                      
-            </div>
 
-          </form>
+                <tr>
+                    <td>
+                        <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <input type="submit" name="submit" value="Update Category" class="btn-update">
+                    </td>
+                </tr>
 
-          <!-- edit -->
-          <?php 
+            </table>
+
+        </form>
+
+        <?php 
         
             if(isset($_POST['submit']))
             {
                 //echo "Clicked";
                 //1. Get all the values from our form
-                //$id = $_POST['user_id'];
-                $full_name = $_POST['full_name'];                
-                $contact_number = $_POST['contact_number'];
+                $id = $_POST['id'];
+                $full_name = $_POST['full_name'];
                 $current_image = $_POST['current_image'];
+                $contact_number = $_POST['contact_number'];
+                $position = $_POST['position'];
 
                 //2. Updating New Image if selected
                 //Check whether the image is selected or not
@@ -137,12 +142,12 @@
                         $ext = end(explode('.', $image_name));
 
                         //Rename the Image
-                        $image_name = "user_img_".rand(000, 999).'.'.$ext; // e.g. Food_Category_834.jpg
+                        $image_name = "Food_Category_".rand(000, 999).'.'.$ext; // e.g. Food_Category_834.jpg
                         
 
                         $source_path = $_FILES['image']['tmp_name'];
 
-                        $destination_path = "images/user/".$image_name;
+                        $destination_path = "../images/chef/".$image_name;
 
                         //Finally Upload the Image
                         $upload = move_uploaded_file($source_path, $destination_path);
@@ -154,7 +159,7 @@
                             //SEt message
                             $_SESSION['upload'] = "<div class='error'>Failed to Upload Image. </div>";
                             //Redirect to Add Category Page
-                            header('location:'.SITEURL.'user-account.php');
+                            header('location:'.SITEURL.'admin/control-chef.php');
                             //STop the Process
                             die();
                         }
@@ -162,7 +167,7 @@
                         //B. Remove the Current Image if available
                         if($current_image!="")
                         {
-                            $remove_path = "images/user/".$current_image;
+                            $remove_path = "../images/chef/".$current_image;
 
                             $remove = unlink($remove_path);
 
@@ -172,7 +177,7 @@
                             {
                                 //Failed to remove image
                                 $_SESSION['failed-remove'] = "<div class='error'>Failed to remove current Image.</div>";
-                                //header('location:'.SITEURL.'user-account.php');
+                                header('location:'.SITEURL.'admin/control-chef.php');
                                 die();//Stop the Process
                             }
                         }
@@ -190,12 +195,12 @@
                 }
 
                 //3. Update the Database
-                $sql2 = "UPDATE user_signup SET 
-                    user_id = '$id',
+                $sql2 = "UPDATE table_chef SET 
                     full_name = '$full_name',
+                    image_name = '$image_name',
                     contact_number = '$contact_number',
-                    image_name = '$image_name'
-                    WHERE user_id=$id
+                    position = '$position' 
+                    WHERE id=$id
                 ";
 
                 //Execute the Query
@@ -206,27 +211,21 @@
                 if($res2==true)
                 {
                     //Category Updated
-                    $_SESSION['update'] = "<div class='success'>Profile Updated Successfully.</div>";
-                    //header('location:'.SITEURL.'user-account.php');
-                    echo"<script> window.open('user-account.php','_self')</script>";
+                    $_SESSION['update'] = "<div class='success'>Chef Updated Successfully.</div>";
+                    header('location:'.SITEURL.'admin/control-chef.php');
                 }
                 else
                 {
                     //failed to update category
-                    $_SESSION['update'] = "<div class='error'>Failed to Update Profile.</div>";
-                    //header('location:'.SITEURL.'user-account.php');
-                    echo"<script> window.open('user-account.php','_self')</script>";
+                    $_SESSION['update'] = "<div class='error'>Failed to Update Chef.</div>";
+                    header('location:'.SITEURL.'admin/control-chef.php');
                 }
 
             }
         
         ?>
-              
-        </div>
-      </div>
-                  
-    </div>
-  </section>
-</main>
 
-<?php include('hf-ft-front/footer.php'); ?>
+    </div>
+</div>
+
+<?php include('hd-ft/footer.php'); ?>

@@ -2,6 +2,13 @@
     
     <div class="manage">
         <div class = "wrapper">
+            <div align="right">
+                <a href="<?php echo SITEURL;?>admin/control-chef.php" class="btn-add">Chef</a>
+                <a href="<?php echo SITEURL;?>admin/restaurant_image.php" class="btn-add">Restaurant Image</a>
+                <a href="<?php echo SITEURL;?>admin/restaurant_info.php" class="btn-add">Restaurant Info</a>
+            </div>
+            <br>
+            <br>
             <h1>Why US</h1>
             <br>
             <br>

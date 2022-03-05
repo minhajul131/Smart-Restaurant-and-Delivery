@@ -278,7 +278,8 @@
                     $_SESSION['update'] = "<div class='success'>Food Updated Successfully.</div>";
                     ?>
                     <!--header('location:'.SITEURL.'admin/control-food.php');-->
-                    <script>window.location.href='http://localhost/Smart-Restaurant-and-Delivery/admin/control-food.php';</script>
+                    <!--<script>window.location.href='http://localhost/Smart-Restaurant-and-Delivery/admin/control-food.php';</script>-->
+                    echo "<script>window.open('control-food.php','_self')</script>";
                     <?php
                 }
                 else

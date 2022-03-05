@@ -27,19 +27,15 @@
         <div class="wrapper">
             <ul>
                 <li><a href="home.php">Home</a></li>
-                <li><a href="control-user.php">User</a></li>
                 <li><a href="control-admin.php">Admin</a></li>
-                <li><a href="control-chef.php">Chef</a></li>
+                <li><a href="control-user.php">User</a></li>
                 <li><a href="control-category.php">Category</a></li>
                 <li><a href="control-food.php">Food</a></li>
-                <li><a href="order-delivery.php">Delivery</a></li>
-                <li><a href="order-table.php">Table</a></li>
+                <li><a href="order-delivery.php">Order For Delivery</a></li>
+                <li><a href="order-table.php">Order From Table</a></li>
                 <li><a href="restaurant_info.php">Info</a></li>
-                <li><a href="restaurant_image.php">Image</a></li>
-                <li><a href="why_us.php">Why Us</a></li>
-                <li><a href="signout.php">Sign Out</a></li>
-                    
-            </ul>
+                <li><a href="signout.php">Sign Out</a></li> 
+            </ul> 
         </div>
     </div>
     <!-- Menu Ends -->
