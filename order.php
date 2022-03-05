@@ -16,7 +16,7 @@ $customar_id = $row_customar['user_id'];
         $customar_location = $_SESSION['d_address'];
   
     $ip_add=getRealIpUser();
-    $status="ordered";
+    $status="ordered"; //placed,accepted, packed, shipped, delivered
     $select_cart= "SELECT * FROM cart WHERE ip_add = '$ip_add'";
     $run_cart= mysqli_query($conn,$select_cart);
     while($row_cart=mysqli_fetch_array($run_cart)){
@@ -28,16 +28,17 @@ $customar_id = $row_customar['user_id'];
         //$sub_total=$run_pro['price']*$qty;
         while($row_pro= mysqli_fetch_array($run_pro)){
             $pri = $row_pro['price'];
+            $tit = $row_pro['title'];
             $sub_total=$pri*$qty;
             if(is_numeric($customar_location) )
             {
-                  $insert_customar_order= "INSERT INTO `order_table`(`user_id`,`table_no`, `food_id`, `food_quantity`, `total_price`, `order_time`, `order_status`) 
-                VALUES ('$customar_id','$customar_location','$fd_id','$qty','$sub_total',NOW(),'$status')";
+                  $insert_customar_order= "INSERT INTO `order_table`(`user_id`,`table_no`, `food_id`,`food_title`, `food_quantity`, `total_price`, `order_time`, `order_status`) 
+                VALUES ('$customar_id','$customar_location','$fd_id','$tit','$qty','$sub_total',NOW(),'$status')";
                 $run_cus_order=mysqli_query($conn,$insert_customar_order);
             }else
             {
-               $insert_customar_order= "INSERT INTO `order_delivery`(`user_id`,`address`, `food_id`, `food_quantity`, `total_price`, `order_time`, `order_status`) 
-            VALUES ('$customar_id','$customar_location','$fd_id','$qty','$sub_total',NOW(),'$status')";
+               $insert_customar_order= "INSERT INTO `order_delivery`(`user_id`,`address`, `food_id`,`food_title`, `food_quantity`, `total_price`, `order_time`, `order_status`) 
+            VALUES ('$customar_id','$customar_location','$fd_id','$tit','$qty','$sub_total',NOW(),'$status')";
             $run_cus_order=mysqli_query($conn,$insert_customar_order);
             }
            

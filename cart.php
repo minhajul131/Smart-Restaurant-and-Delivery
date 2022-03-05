@@ -156,17 +156,7 @@
                     ?>
                     </h5>  
                   </div>
-                  <form action="" method= "post">
-
-                    <h5 class="text-uppercase mb-3">Delivery Option</h5>
-
-                    <div class="mb-4 pb-2">
-                      <select class="select" name="options">
-                        <option>Table</option>
-                        <option>Delivery</option>    
-                      </select>
-                    </div>
-                  </form>
+                  
                   
                   <hr class="my-4">
 

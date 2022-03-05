@@ -25,7 +25,7 @@
                 }
                 else
                 {
-                  echo  "<a class='nav-link scrollto'  href='user-signin.php'>Signin</a>";
+                  echo  "<a class='nav-link scrollto'  href='user-sign2.php'>Signin</a>";
                 }
               ?>
           

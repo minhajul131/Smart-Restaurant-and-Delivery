@@ -77,12 +77,12 @@
                     }
                     
                 ?>
-        <i class="bi d-flex align-items-center ms-4"><span> <a href="my_account.php"  >
+        <i class="bi d-flex align-items-center ms-4"><span> <a href="user-account.php"  >
                    <?php
                    if(isset($_SESSION['username']))
                    {
                         echo "Welcome : ".$_SESSION['username']."";
-                        echo "  <a href='../my_account.php'>"; 
+                        echo "  <a href='../user-account.php'>"; 
                         echo "  </a>";
                    }
                    else 

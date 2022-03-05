@@ -6,7 +6,7 @@
         $full_name = $_POST['full_name'];
         $contact_number = $_POST['contact_number'];
         $email = $_POST['email'];
-        $image_name = $_POST['image_name'];
+        //$image_name = $_POST['image_name'];
         $user_name = $_POST['user_name'];
         $password = $_POST['password'];
 
@@ -95,16 +95,16 @@
                     //Create a Session Variable to Display Message
                     $_SESSION['add'] = "<div class='success'>User Added Successfully.</div>";
                     //Redirect Page to Manage Admin
-                    header("location:".SITEURL.'user-signin.php');
+                    header("location:".SITEURL.'user-sign2.php');
             }
             else
             {
                 //FAiled to Insert DAta
                 //echo "Faile to Insert Data";
                 //Create a Session Variable to Display Message
-                $_SESSION['add'] = "<div class='error'>Failed to Add Admin.</div>";
+                $_SESSION['add'] = "<div class='error'>Failed to Add .</div>";
                 //Redirect Page to Add Admin
-                header("location:".SITEURL.'user-signup.php');
+                header("location:".SITEURL.'user-sign2.php');
             }
         }
     }

@@ -10,10 +10,11 @@
                 <tr>
                     <th>Order ID</th>
                     <th>User ID</th>
-                    <th>Delivery_address</th>
-                    <th>food_id</th>
-                    <th>food_quantity</th>
-                    <th>total_price</th>
+                    <th>Delivery Address</th>
+                    <th>Food Id</th>
+                    <th>Food Title</th>
+                    <th>Food Quantity</th>
+                    <th>Total Price</th>
                     <th>Order Time</th>
                     <th>Status</th>
                     <th>Actions</th>
@@ -40,6 +41,7 @@
                             $user_id = $row['user_id'];
                             $address = $row['address'];
                             $food_id = $row['food_id'];
+                            $food_title = $row['food_title'];
                             $food_quantity = $row['food_quantity'];
                             $total_price = $row['total_price'];
                             $order_time = $row['order_time'];
@@ -51,6 +53,7 @@
                                 <td><?php echo $user_id; ?></td>
                                 <td><?php echo $address; ?></td>
                                 <td><?php echo $food_id; ?></td>
+                                <td><?php echo $food_title; ?></td>
                                 <td><?php echo $food_quantity; ?></td>
                                 <td><?php echo $total_price; ?></td>
                                 <td><?php echo $order_time; ?></td>
@@ -72,7 +75,7 @@
                                 </td>
                                 <td>
                                     
-                                    <a href="<?php echo SITEURL; ?>admin/order_delivery_update.php?order_id=<?php echo $order_id; ?>" class="btn-delete">Update Status</a>
+                                    <a href="<?php echo SITEURL; ?>admin/order-delivery-update.php?order_id=<?php echo $order_id; ?>" class="btn-delete">Update Status</a>
                                 </td>
                             </tr>
                                 <?php
