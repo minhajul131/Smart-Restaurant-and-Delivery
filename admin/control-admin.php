@@ -21,6 +21,23 @@
                     echo $_SESSION['update']; //Display the Session Message if Set
                     unset($_SESSION['update']); //Remove Session Message
                 }
+                if(isset($_SESSION['user-not-found']))
+                    {
+                        echo $_SESSION['user-not-found'];
+                        unset($_SESSION['user-not-found']);
+                    }
+
+                    if(isset($_SESSION['pwd-not-match']))
+                    {
+                        echo $_SESSION['pwd-not-match'];
+                        unset($_SESSION['pwd-not-match']);
+                    }
+
+                    if(isset($_SESSION['change-pwd']))
+                    {
+                        echo $_SESSION['change-pwd'];
+                        unset($_SESSION['change-pwd']);
+                    }
             ?>
 
             <br>
@@ -68,6 +85,7 @@
                                     <td><?php echo $email; ?></td>
                                     <td><?php echo $username; ?></td>
                                     <td>
+                                        <a href="<?php echo SITEURL;?>admin/change-password.php?id=<?php echo $id; ?>" class = "btn-add">Change Password</a>
                                         <a href="<?php echo SITEURL;?>admin/update-admin.php?id=<?php echo $id; ?>" class = "btn-update">Update</a>
                                         <a href="<?php echo SITEURL;?>admin/delete-admin.php?id=<?php echo $id; ?>" class = "btn-delete">delete</a>
                                     </td>

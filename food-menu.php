@@ -95,11 +95,11 @@
                       ?>
                       
                       <div class="menu-content">
-                        <a href="#"><?php echo $title; ?></a><span>TK:<?php echo $price; ?></span>
+                      <span><?php echo $title; ?></span><span>TK: <?php echo $price; ?></span>
                       </div>
                       <div class="menu-ingredients">
                         <?php echo $description; ?> <br>
-                        <a class='btn btn-primary displaybtn' href="cart.php?id=<?php echo $row2['id']; ?>"  ><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                        <a class='btn btn-dark btn-block' href="cart.php?id=<?php echo $row2['id']; ?>"  ><i class="fa fa-shopping-cart"></i> Add to Cart</a>
                       </div>
                       
                     </div>

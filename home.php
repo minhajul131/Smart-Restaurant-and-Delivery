@@ -12,7 +12,6 @@
         <ul>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
-          <li><a class="nav-link scrollto" href="#specials">Specials</a></li>
           <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -253,11 +252,11 @@
                   ?>
                   
                   <div class="menu-content">
-                    <a href="#"><?php echo $title; ?></a><span>TK <?php echo $price; ?></span>
+                    <span><?php echo $title; ?></span><span>TK <?php echo $price; ?></span>
                   </div>
                   <div class="menu-ingredients">
                     <?php echo $description; ?> <br>
-                    <a class='btn btn-primary displaybtn' href="cart.php?id=<?php echo $rows['id']; ?>"  ><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                    <a class='btn btn-dark btn-block ' href="cart.php?id=<?php echo $rows['id']; ?>"  ><i class="fa fa-shopping-cart"></i> Add to Cart</a>
                   </div>
                   
                 </div>

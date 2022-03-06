@@ -130,7 +130,8 @@
                                 <p><?php echo $c_name?></p>
                                 <p><?php echo $c_email?></p>
                                 <p><?php echo $c_contact?></p>
-                                <a href="<?php echo SITEURL; ?>user_account_edit.php?id=<?php echo $c_id; ?>" class="btn btn-dark btn-block btn-lg">Edit Profile</a>     
+                                <a href="<?php echo SITEURL; ?>user_account_edit.php?id=<?php echo $c_id; ?>" class="btn btn-dark btn-block btn-lg">Edit Profile</a>
+                                <a href="<?php echo SITEURL; ?>user-change-pass.php?id=<?php echo $c_id; ?>" class="btn btn-dark btn-block btn-lg">Change Password</a>     
                             </div>    
                         </div>             
                     </div>
