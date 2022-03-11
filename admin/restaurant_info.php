@@ -4,7 +4,7 @@
         <div class = "wrapper">
             <div align="right">
                 <a href="<?php echo SITEURL;?>admin/control-chef.php" class="btn-add">Chef</a>
-                <a href="<?php echo SITEURL;?>admin/restaurant_image.php" class="btn-add">Restaurant Image</a>
+                <a href="<?php echo SITEURL;?>admin/restaurant-image.php" class="btn-add">Restaurant Image</a>
                 <a href="<?php echo SITEURL;?>admin/why_us.php" class="btn-add">Why Us</a>
             </div>
             <br>

@@ -112,7 +112,7 @@
                             //SEt message
                             $_SESSION['upload'] = "<div class='error'>Failed to Upload Image. </div>";
                             //Redirect to Add CAtegory Page
-                            header('location:'.SITEURL.'admin/reataurant_image_add.php');
+                            header('location:'.SITEURL.'admin/reataurant-image_add.php');
                             //Stop the Process
                             die();
                         }
@@ -142,14 +142,14 @@
                     //Query Executed and Category Added
                     $_SESSION['add'] = "<div class='success'>Added Successfully.</div>";
                     //Redirect to Manage Category Page
-                    header('location:'.SITEURL.'admin/restaurant_image.php');
+                    header('location:'.SITEURL.'admin/restaurant-image.php');
                 }
                 else
                 {
                     //Failed to Add CAtegory
                     $_SESSION['add'] = "<div class='error'>Failed to Add.</div>";
                     //Redirect to Manage Category Page
-                    header('location:'.SITEURL.'admin/reataurant_image_add.php');
+                    header('location:'.SITEURL.'admin/reataurant-image_add.php');
                 }
             }
         

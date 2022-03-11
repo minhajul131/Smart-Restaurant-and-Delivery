@@ -33,7 +33,7 @@
             <br>
 
             <!-- Button to Add category -->
-            <a href="<?php echo SITEURL;?>admin/reataurant_image_add.php" class="btn-add">Add Image</a>
+            <a href="<?php echo SITEURL;?>admin/restaurant-image-add.php" class="btn-add">Add Image</a>
             <br>
             <br>
             <br>
@@ -95,7 +95,9 @@
 
                                 </td>
                                 <td><?php echo $active; ?></td>
-                                
+                                <td>
+                                    <a href="<?php echo SITEURL; ?>admin/restaurant-image-delete.php?id=<?php echo $im_id; ?>&image_name=<?php echo $image_name; ?>" class="btn-delete">Delete Image</a>
+                                </td>
                                 
                             </tr>
 

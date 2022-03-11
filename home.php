@@ -12,6 +12,7 @@
         <ul>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
+          <li><a class="nav-link scrollto" href="#specials">Specials</a></li>
           <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -24,7 +25,7 @@
                 }
                 else
                 {
-                  echo  "<a class='nav-link scrollto'  href='user-sign2.php'>Signin</a>";
+                  echo  "<a class='nav-link scrollto'  href='user-sign2.php'>Sign In</a>";
                 }
               ?>
           
@@ -61,7 +62,7 @@
         <?php 
 
           //Query to Get all Categories from Database
-          $sql = "SELECT * FROM rt_image WHERE active ='Yes'";
+          $sql = "SELECT * FROM rt_image WHERE active ='Yes' LIMIT 1";
 
           //Execute Query
           $res = mysqli_query($conn, $sql);
@@ -130,6 +131,75 @@
 
       </div>
     </section><!-- End About Section -->
+
+    <!-- ======= Specials Section ======= -->
+    <section id="specials" class="specials">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Specials</h2>
+          <p>Check Our Specials</p>
+        </div>
+
+        <div class="row">
+
+          <?php
+            $sql = " SELECT * FROM table_food WHERE featured='Yes' AND active='Yes' AND special='Yes' LIMIT 6 ";
+
+            $res = mysqli_query($conn, $sql);
+
+            $count = mysqli_num_rows($res);
+
+            if($count>0){
+              //category available
+              while($rows = mysqli_fetch_assoc($res)){
+                $id = $rows['id'];
+                $title = $rows['title'];
+                $description = $rows['description'];
+                $image_name = $rows['image_name'];
+                
+                ?>
+
+                  <div style="text-align: center" class="col-lg-4 col-md-6">
+                    <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                    
+                    <?php
+                      //check image
+                      if($image_name==""){
+                        echo "not available";
+                      }
+                      else{
+                      //available
+                      ?>
+                      <img style="border-radius: 50%" src="<?php echo SITEURL; ?>images/food/<?php echo $image_name ?>" class="img-fluid" alt="" width="200px">
+                      <?php
+                      }
+                      ?>
+
+                    <div class="member-info">
+                      <div class="member-info-content">
+                        <h4 ><?php echo $title ?></h4>
+                        <p><?php echo $description; ?></p>
+                      </div>
+                      
+                    </div>
+                    
+                    
+                  </div>
+                
+              </div> 
+              
+              <?php 
+              }
+            }
+            else{
+               echo "Not avilable";
+            }
+          ?>       
+        </div>
+
+      </div>
+    </section><!-- End Specials Section -->
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us">
@@ -501,8 +571,7 @@
         </div>
       </div>
     </section><!-- End Chefs Section -->
-    <!-- ======= Gallery Section ======= -->
-    
+        
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">

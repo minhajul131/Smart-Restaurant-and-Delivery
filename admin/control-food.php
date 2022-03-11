@@ -83,7 +83,7 @@
                 <tr>
                     <td><?php echo $id; ?></td>
                     <td><?php echo $title; ?></td>
-                    <td>$<?php echo $price; ?></td>
+                    <td>Tk: <?php echo $price; ?></td>
                     <td>
                         <?php  
                             //CHeck whether we have image or not
