@@ -62,11 +62,8 @@
                                         if($order_status=="ordered"){
                                             echo "<label>$order_status</label>";
                                         }
-                                        elseif($order_status=="pending"){
+                                        elseif($order_status=="accepted"){
                                             echo "<label style='color: orange'>$order_status</label>";
-                                        }
-                                        elseif($order_status=="processing"){
-                                            echo "<label style='color: blue'>$order_status</label>";
                                         }
                                         elseif($order_status=="delivered"){
                                             echo "<label style='color: green'>$order_status</label>";

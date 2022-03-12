@@ -152,20 +152,26 @@
                   <div class="d-flex justify-content-between mb-4">
                     <h5 class="text-uppercase">items <?php echo $count4; ?></h5>
                       
-                    <h5>TK <?php echo $total;
-                    ?>
-                    </h5>  
+                    <h5>TK <?php echo $total; ?> </h5>  
                   </div>
                   
-                  
+                  <h5 class="text-uppercase mb-3">Payment Option</h5>
+
+                    <div class="mb-4 pb-2">
+                      <select class="select">
+                        <option value="1">Cash on delivery</option>
+                        
+                      </select>
+                    </div>
                   <hr class="my-4">
 
                   <div class="d-flex justify-content-between mb-5">
                     <h5 class="text-uppercase">Total price</h5>
                     <h5>TK <?php echo $total?></h5>
                   </div>
-
+                  <?php if($count4>0){ ?>
                   <a href="<?php echo SITEURL;?>checkout.php" name="submit" class="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">Check Out</a>
+                  <?php } ?>
                 </div>
               </div>
                 

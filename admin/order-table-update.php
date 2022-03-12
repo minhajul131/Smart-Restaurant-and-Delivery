@@ -50,8 +50,7 @@
                         <td>
                             <select name="order_status">
                                 <option <?php if($order_status=="ordered"){echo "selected";} ?> value="ordered">ordered</option>
-                                <option <?php if($order_status=="pending"){echo "selected";} ?> value="pending">pending</option>
-                                <option <?php if($order_status=="processing"){echo "selected";} ?> value="processing">processing</option>
+                                <option <?php if($order_status=="accepted"){echo "selected";} ?> value="accepted">accepted</option>
                                 <option <?php if($order_status=="delivered"){echo "selected";} ?> value="delivered">delivered</option>
                             </select>
                         </td>

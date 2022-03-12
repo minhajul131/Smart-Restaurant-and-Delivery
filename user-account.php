@@ -44,7 +44,18 @@
                                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Orders</a>
+                                            <h4 class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true">Orders</h4>
+                                            <?php
+                                                $payable = "SELECT SUM(total_price) AS Total FROM order_delivery WHERE order_status!='delivered'";
+                                                $res4 = mysqli_query($conn, $payable);
+
+                                                //Get the VAlue
+                                                $row4 = mysqli_fetch_assoc($res4);
+                                                
+                                                //GEt the Total REvenue
+                                                $total_revenue1 = $row4['Total'];
+                                            ?>   
+                                            <h4>Total payable Taka <?php echo $total_revenue1; ?>/-</h4> 
                                         </li>    
                                     </ul>
                             
@@ -102,7 +113,7 @@
                                                 }
                                             }   
                                         ?>                                                                                               
-                                    </table>                                   
+                                    </table>                        
                                 </div>
                             </div>
                         </div>
