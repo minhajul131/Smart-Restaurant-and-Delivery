@@ -84,9 +84,13 @@
 
         if($count==1)
         {
+            
             //User Available and Login Success
+            $row=mysqli_fetch_assoc($res);
+            //$role = $rows['role'];
             $_SESSION['login'] = "<div class='success'>Login Successful.</div>";
             $_SESSION['user'] = $username; //TO check whether the user is logged in or not and logout will unset it
+            $_SESSION['role'] = $row['role'];
 
             //Redirect to HOme Page/Dashboard
             header('location:'.SITEURL.'admin/home.php');

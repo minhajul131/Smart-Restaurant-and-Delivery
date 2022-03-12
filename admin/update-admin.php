@@ -1,4 +1,9 @@
-<?php include('hd-ft/header.php'); ?>
+<?php include('hd-ft/header.php'); 
+    if(isset($_SESSION['role']) && $_SESSION['role']!='1'){
+        header("location:".SITEURL.'admin/home.php');
+        die();
+    }
+?>
 
     <div class="manage">
         <div class = "wrapper">

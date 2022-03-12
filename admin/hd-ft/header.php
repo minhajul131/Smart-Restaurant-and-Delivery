@@ -27,8 +27,10 @@
         <div class="wrapper">
             <ul>
                 <li><a href="home.php">Home</a></li>
+                <?php if($_SESSION['role']==1){ ?>
                 <li><a href="control-admin.php">Admin</a></li>
                 <li><a href="control-user.php">User</a></li>
+                <?php } ?>
                 <li><a href="control-category.php">Category</a></li>
                 <li><a href="control-food.php">Food</a></li>
                 <li><a href="order-delivery.php">Order For Delivery</a></li>

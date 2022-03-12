@@ -8,6 +8,7 @@
         $email = $_POST['email'];
         $user_name = $_POST['user_name'];
         $password = $_POST['password'];
+        $role = $_POST['role'];
 
         $errors = array();
 
@@ -34,8 +35,8 @@
         
         //sql quary
         if(count($errors)==0){
-            $sql = "INSERT INTO table_admin ( `full_name`, `contact_number`, `email`, `username`, `password`) 
-            VALUES ('$full_name','$contact_number','$email','$user_name','$password')";
+            $sql = "INSERT INTO table_admin ( `full_name`, `contact_number`, `email`, `username`, `password`, `role`) 
+            VALUES ('$full_name','$contact_number','$email','$user_name','$password','$role')";
 
             $res = mysqli_query($conn, $sql) or die(mysqli_error());
 
@@ -113,6 +114,12 @@
                     <td>
                         <input type="password" name="password" placeholder="Enter Your Password">
                         <p><?php if(isset($errors['p'])) echo $errors['p']; ?></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Role</td>
+                    <td>
+                        <input type="text" name="role" placeholder="Enter Role">
                     </td>
                 </tr>
 
