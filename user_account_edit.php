@@ -98,7 +98,8 @@
               </div>
               <br>
               <div>
-              
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
                 <button type="submit" class="btn btn-primary btn-lg btn-block col-md-6" name="submit">Update Account</button>
               </div>
                       

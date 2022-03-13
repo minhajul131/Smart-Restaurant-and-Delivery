@@ -5,7 +5,18 @@
       <div class="section-title">
         <p>Enter Your Details</p>
       </div>
-
+        <?php
+            if(isset($_SESSION['change-pwd']))
+            {
+                echo $_SESSION['change-pwd'];
+                unset($_SESSION['change-pwd']);
+            }
+            if(isset($_SESSION['pwd-not-match']))
+            {
+                echo $_SESSION['pwd-not-match'];
+                unset($_SESSION['pwd-not-match']);
+            }
+        ?>
         
         <div class="row mt-5">
         <div class="offset-md-3 col-lg-12 mt-5 mt-lg-0">
@@ -108,7 +119,7 @@
                             //REdirect to Manage Admin Page with Error Message
                             $_SESSION['pwd-not-match'] = "<div class='error'>Password Did not Patch. </div>";
                             //Redirect the User
-                            header('location:'.SITEURL.'user-account.php');
+                            header('location:'.SITEURL.'user-change-pass.php');
 
                         }
                     }
@@ -117,7 +128,7 @@
                         //User Does not Exist Set Message and REdirect
                         $_SESSION['user-not-found'] = "<div class='error'>User Not Found. </div>";
                         //Redirect the User
-                        header('location:'.SITEURL.'user-account.php');
+                        header('location:'.SITEURL.'user-change-pass.php');
                     }
                 }
 

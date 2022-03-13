@@ -34,7 +34,16 @@
                     echo $_SESSION['update'];
                     unset($_SESSION['update']);
                 }
-            
+                if(isset($_SESSION['change-pwd']))
+                {
+                    echo $_SESSION['change-pwd'];
+                    unset($_SESSION['change-pwd']);
+                }
+                if(isset($_SESSION['pwd-not-match']))
+                {
+                    echo $_SESSION['pwd-not-match'];
+                    unset($_SESSION['pwd-not-match']);
+                }
             ?>
 
                 <div class="container">
@@ -46,16 +55,27 @@
                                         <li class="nav-item">
                                             <h4 class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true">Orders</h4>
                                             <?php
-                                                $payable = "SELECT SUM(total_price) AS Total FROM order_delivery WHERE order_status!='delivered'";
-                                                $res4 = mysqli_query($conn, $payable);
-
-                                                //Get the VAlue
-                                                $row4 = mysqli_fetch_assoc($res4);
-                                                
-                                                //GEt the Total REvenue
-                                                $total_revenue1 = $row4['Total'];
-                                            ?>   
-                                            <h4>Total payable Taka <?php echo $total_revenue1; ?>/-</h4> 
+                                                if(isset($_SESSION['username']))
+                                                {
+                                                    $c_user=$_SESSION['username'];
+                                                    $st_u = "SELECT * FROM user_signup WHERE username = '$c_user'";
+                                                    $r_u = mysqli_query($conn,$st_u);
+                                                    $ro = mysqli_fetch_array($r_u);
+                                                    $u_id = $ro['user_id'];
+                                                    $payable = "SELECT SUM(total_price) AS Total FROM order_delivery WHERE order_status!='delivered' AND user_id='$u_id'";
+                                                    $res4 = mysqli_query($conn, $payable);
+    
+                                                    //Get the VAlue
+                                                    $row4 = mysqli_fetch_assoc($res4);
+                                                    
+                                                    //GEt the Total REvenue
+                                                    $total_revenue1 = $row4['Total'];
+                                                }
+                                                else{
+                                                    header("location:".SITEURL.'home.php');
+                                                }
+                                                ?>   
+                                                <h4>Total payable Taka <?php echo $total_revenue1; ?>/-</h4> 
                                         </li>    
                                     </ul>
                             
