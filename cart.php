@@ -4,7 +4,7 @@
   include("functions.php");
   if(isset($_GET['id'])){
     $food_id=$_GET['id'];
-    echo $_GET['id']; 
+    //echo $_GET['id']; 
     
     $ip_add=getRealIpUser();
     //echo $ip_add;

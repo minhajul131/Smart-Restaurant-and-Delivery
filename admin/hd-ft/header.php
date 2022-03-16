@@ -26,7 +26,7 @@
     <div class="menu text-center">
         <div class="wrapper">
             <ul>
-                <li><a href="home.php">Home</a></li>
+                <li><a href="home.php"><img src="../images/rs_logo.png" width="80px"></a></li>
                 <?php if($_SESSION['role']==1){ ?>
                 <li><a href="control-admin.php">Admin</a></li>
                 <li><a href="control-user.php">User</a></li>

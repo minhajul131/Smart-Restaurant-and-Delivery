@@ -10,7 +10,7 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto" href="cart.php"><img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/64/000000/external-cart-marketing-flatart-icons-flat-flatarticons.png" width="40px"/></a></li>
+          <!--<li><a class="nav-link scrollto" href="cart.php"><img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/64/000000/external-cart-marketing-flatart-icons-flat-flatarticons.png" width="40px"/></a></li>-->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>

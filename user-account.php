@@ -1,4 +1,10 @@
-<?php include('hf-ft-front/header.php'); ?>
+<?php include('hf-ft-front/header.php'); 
+    if(!isset($_SESSION['username'])){
+        header("location:".SITEURL.'home.php');
+        die();
+    }
+
+?>
 
 
   <!-- Header -->
@@ -75,7 +81,7 @@
                                                     header("location:".SITEURL.'home.php');
                                                 }
                                                 ?>   
-                                                <h4>Total payable Taka <?php echo $total_revenue1; ?>/-</h4> 
+                                                <h4>Total payable Taka: <?php echo $total_revenue1; ?>/-</h4> 
                                         </li>    
                                     </ul>
                             

@@ -4,7 +4,7 @@
   <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><a href="home.php">Lamppost</a></h1>
+      <a class="logo " href="home.php" ><img src="images/rs_logo.png" > </a>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -30,7 +30,7 @@
               ?>
           
           </li>
-          <li><a class="nav-link scrollto" href="cart.php"><img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/64/000000/external-cart-marketing-flatart-icons-flat-flatarticons.png" width="40px"/></a></li>
+          <!--<li><a class="nav-link scrollto" href="cart.php"><img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/64/000000/external-cart-marketing-flatart-icons-flat-flatarticons.png" width="40px"/></a></li>-->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
