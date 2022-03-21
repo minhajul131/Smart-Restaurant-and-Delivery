@@ -36,6 +36,7 @@
                 <li><a href="order-delivery.php">Order For Delivery</a></li>
                 <li><a href="order-table.php">Order From Table</a></li>
                 <li><a href="restaurant_info.php">Info</a></li>
+                <li><a href="user_review.php">Review</a></li>
                 <li><a href="signout.php">Sign Out</a></li> 
             </ul> 
         </div>

@@ -282,7 +282,7 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="menu-flters">
               
-              <a class='filter-active' href="food-category.php"> ---- >>>> Explore All Food <<<< ---- </a>
+              <a class='btn btn-light btn-block filter-active' href="food-category.php"> ---- >>>> Explore All Food <<<< ---- </a>
               
             </ul>
           </div>
