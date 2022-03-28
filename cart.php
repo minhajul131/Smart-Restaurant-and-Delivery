@@ -1,3 +1,4 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <?php 
  
   include('hf-ft-front/header.php'); 
@@ -16,7 +17,8 @@
     $count = mysqli_num_rows($res);
     if($count>0){
       //echo "already added";
-      echo"<script>alert('Already added' )</script>";   
+      //echo"<script>alert('Already added' )</script>"; 
+      echo "<script>Swal.fire('Already added')</script>";  
     }
     else{
       $sql2 = " SELECT * FROM table_food WHERE id='$food_id'  ";

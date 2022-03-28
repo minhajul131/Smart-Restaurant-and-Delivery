@@ -4,7 +4,7 @@
   <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
-      <a class="logo " href="home.php" ><img src="images/rs_logo.png" > </a>
+      <a class="logo " href="home.php" >Restaurant</a>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -120,9 +120,9 @@
               Welcome to our restaurant. Hope you will enjoy.
             </p>
             <ul>
-              <li><i class="bi bi-check-circle"></i> Online order.</li>
+              <li><i class="bi bi-check-circle"></i> Online order</li>
               <li><i class="bi bi-check-circle"></i> Home delivery</li>
-              <li><i class="bi bi-check-circle"></i> Cash on delivery</li>
+              <li><i class="bi bi-check-circle"></i> Best location</li>
             </ul>
             <p>
               We want to serve best food for you. You can trust us. First you check then trust.

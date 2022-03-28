@@ -45,7 +45,7 @@ $customar_id = $row_customar['user_id'];
             
             $delete_cart="DELETE FROM cart WHERE ip_add='$ip_add'";
             $run_del=mysqli_query($conn,$delete_cart);
-            echo "<script>alert('completed.')</script>";
+            echo "<script>alert('Order placed')</script>";
             echo"<script> window.open('home.php','_self')</script>";
         }
     }

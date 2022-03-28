@@ -69,16 +69,16 @@
             $run_cart =mysqli_query($conn, $select_cart);
             $check_cart = mysqli_num_rows($run_cart);
             if($check_customer==0){
-                echo "<script>alert('error')</script>";
+                echo "<script>alert('Login Error')</script>";
                 exit();
             }
             if($check_customer==1 AND $check_cart==0){
                 $_SESSION['username'] = $username;
-                echo "<script>alert('logged In')</script>";
+                echo "<script>alert('Login Successful')</script>";
                 echo "<script>window.open('home.php','_self')</script>";
             }else{
                 $_SESSION['username'] = $username;
-                echo "<script>alert('logged In okk')</script>";
+                echo "<script>alert('Login Successful')</script>";
                 echo "<script>window.open('checkout.php','_self')</script>";
             }
 

@@ -67,7 +67,7 @@
                                 <td><?php echo $why_description; ?></td>
                                 
                                 <td>
-                                    <a href="<?php echo SITEURL; ?>admin/why_us_update.php?id=<?php echo $id; ?>" class="btn-update">Update Info</a>
+                                    <a href="<?php echo SITEURL; ?>admin/update-whyUs.php?id=<?php echo $id; ?>" class="btn-update">Update Info</a>
                                 </td>
                             </tr>
 

@@ -25,7 +25,7 @@
                 <tr>
                     <td>Description:</td>
                     <td>
-                        <input type="text" name="why_description" placeholder="Enter Open Hours">
+                        <textarea type="text" name="why_description" cols="30" rows="5" placeholder="Enter Open Hours"></textarea>
                     </td>
                 </tr>
                 <tr>

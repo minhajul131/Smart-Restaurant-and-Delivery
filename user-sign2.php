@@ -82,7 +82,7 @@
             $_SESSION['username'] = $username; //TO check whether the user is logged in or not and logout will unset it
 
             //Redirect to HOme Page/Dashboard
-            echo "<script>alert('Logged In.')</script>";
+            echo "<script>alert('Login Successful.')</script>";
             echo"<script> window.open('home.php','_self')</script>";
         }
         else

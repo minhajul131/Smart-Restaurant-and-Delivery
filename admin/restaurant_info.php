@@ -84,7 +84,7 @@
                         ?>
 
                         <tr>
-                            <td colspan="6"><div class="error">No Category Added.</div></td>
+                            <td colspan="6"><div class="error">No Info Added.</div></td>
                         </tr>
 
                         <?php

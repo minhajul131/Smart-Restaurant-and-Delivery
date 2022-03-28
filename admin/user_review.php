@@ -8,6 +8,7 @@
         <table class="table-full">
             <tr>
                 <th>Name</th>
+                <th>Email</th>
                 <th>Subject</th>
                 <th>Message</th>
                 <th>Actions</th>
@@ -32,13 +33,15 @@
                     {
                         $c_id = $row['c_id'];
                         $c_name = $row['c_name'];
+                        $c_email = $row['c_email'];
                         $c_subject = $row['c_subject'];
                         $c_message = $row['c_message'];
                         
 
                         ?>
                         <tr>
-                            <td><?php echo $c_name; ?>. </td>
+                            <td><?php echo $c_name; ?></td>
+                            <td><?php echo $c_email; ?></td>
                             <td><?php echo $c_subject; ?></td>
                             <td><?php echo $c_message; ?></td>
                             <td>

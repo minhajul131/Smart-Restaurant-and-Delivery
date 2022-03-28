@@ -98,7 +98,7 @@
       <div class="languages d-none d-md-flex align-items-center">
         <ul>
         <li></li>
-        <li><a href="cart.php"><img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/64/000000/external-cart-marketing-flatart-icons-flat-flatarticons.png" width="30px"/>Cart</a></li>
+        <li style="list-style-type: none;"><a href="cart.php"><img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/64/000000/external-cart-marketing-flatart-icons-flat-flatarticons.png" width="30px"/>Cart</a></li>
         </ul>
       </div>
     </div>
